@@ -38,3 +38,11 @@ next-env.d.ts
 # cypress
 /cypress/screenshots
 /cypress/videos
+
+# https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
