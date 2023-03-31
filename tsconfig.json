@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -13,8 +14,15 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "paths": {
+      "@/graphql": ["src/graphql/index.ts"],
+      "@/shared/*": ["src/shared/*"],
+      "@/theme/*": ["src/ui/theme/*"],
+      "@/components": ["src/ui/components/index.ts"],
+      "@/atoms": ["src/atoms/index.ts"]
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "actions"]
 }

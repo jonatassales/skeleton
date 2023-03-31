@@ -1,25 +1,106 @@
 {
+  "name": "@propeldata/console",
   "private": true,
+  "license": "UNLICENSED",
+  "repository": "https://github.com/propeldata/console",
+  "author": "<engineering@propeldata.com>",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
     "start": "next start",
+    "build": "next build",
+    "prepare": "yarn build",
+    "graphql": "graphql-codegen -r dotenv/config --config codegen.yml",
+    "test": "echo 'no unit tests yet'",
     "e2e": "start-server-and-test dev http://localhost:3000 \"cypress open --e2e\"",
     "e2e:headless": "start-server-and-test dev http://localhost:3000 \"cypress run --e2e\"",
-    "component": "cypress open --component",
-    "component:headless": "cypress run --component"
+    "lint": "next lint",
+    "format": "prettier --ignore-path .gitignore --write 'src/**/*.{js,jsx,ts,tsx,css,md,json,graphql}'",
+    "tailwind": "tailwindcss -o build.css --minify",
+    "postinstall": "husky install scripts",
+    "analyze": "ANALYZE=true NODE_ENV=development yarn build",
+    "commit": "cz"
   },
   "dependencies": {
-    "next": "latest",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "@hookform/resolvers": "^2.8.3",
+    "@monaco-editor/react": "^4.4.5",
+    "@phosphor-icons/react": "^2.0.6",
+    "@propeldata/parquet-lib": "^0.0.6",
+    "@propeldata/react-time-series": "^0.28.13",
+    "@radix-ui/colors": "^0.1.8",
+    "@radix-ui/react-avatar": "^1.0.2",
+    "@radix-ui/react-dropdown-menu": "^2.0.4",
+    "@radix-ui/react-label": "^2.0.1",
+    "@radix-ui/react-select": "^1.2.1",
+    "@radix-ui/react-slot": "^1.0.1",
+    "@radix-ui/react-tabs": "^1.0.3",
+    "@radix-ui/react-tooltip": "^1.0.5",
+    "@sentry/nextjs": "^7.43.0",
+    "@stitches/react": "^1.2.8",
+    "aws-amplify": "^4.3.42",
+    "date-fns": "^2.28.0",
+    "graphql": "^16.0.1",
+    "graphql-request": "^3.6.1",
+    "jotai": "v1.11.2",
+    "jwt-decode": "^3.1.2",
+    "monaco-editor": "^0.33.0",
+    "next": "^13.2.4",
+    "pretty-bytes": "^5.6.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-dropzone": "^14.2.3",
+    "react-hook-form": "^7.20.5",
+    "react-lottie": "^1.2.3",
+    "react-query": "^3.24.5",
+    "react-spring": "^9.4.0",
+    "uuid": "^8.3.2",
+    "yup": "^1.0.2"
   },
   "devDependencies": {
-    "@types/node": "18.0.6",
-    "@types/react": "18.0.15",
-    "@types/react-dom": "18.0.6",
+    "@graphql-codegen/cli": "^2.2.2",
+    "@graphql-codegen/typescript": "^2.3.0",
+    "@graphql-codegen/typescript-operations": "^2.2.0",
+    "@graphql-codegen/typescript-react-query": "^3.1.0",
+    "@next/bundle-analyzer": "^12.1.4",
+    "@propeldata/account-management-api-definitions": "^0.19.14",
+    "@propeldata/config-management-api-definitions": "^1.44.0",
+    "@types/d3-format": "^3.0.1",
+    "@types/jest": "^28.1.7",
+    "@types/node": "^12.12.21",
+    "@types/react": "^18.0.30",
+    "@types/react-dom": "^18.0.11",
+    "@types/react-lottie": "^1.2.6",
+    "@types/uuid": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.46.1",
+    "autoprefixer": "^10.4.12",
+    "commitizen": "^4.2.6",
     "cypress": "12.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.29.0",
+    "eslint-config-next": "13.0.7",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "postcss": "^8.4.18",
+    "prettier": "^2.7.1",
+    "prettier-plugin-tailwindcss": "^0.1.13",
     "start-server-and-test": "1.15.2",
-    "typescript": "4.7.4"
-  }
+    "tailwindcss": "^3.2.1",
+    "typescript": "^4.8.3"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "**/*.{css,md,json,graphql}": [
+      "prettier --write"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "packageManager": "yarn@3.1.0"
 }

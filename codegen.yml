@@ -1,0 +1,20 @@
+overwrite: true
+config:
+  fetcher: graphql-request
+generates:
+  src/graphql/__generated__/ams-types.ts:
+    schema: ./node_modules/@propeldata/account-management-api-definitions/dist/api.graphql
+    documents:
+      - src/**/*.ams.graphql
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-query
+  src/graphql/__generated__/cms-types.ts:
+    schema: ./node_modules/@propeldata/config-management-api-definitions/dist/private.graphql
+    documents:
+      - src/**/*.cms.graphql
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-query

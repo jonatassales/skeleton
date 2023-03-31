@@ -1,0 +1,30 @@
+name: check-pull-request
+on:
+  pull_request:
+env:
+  PROPELDATA_CI_TOKEN: ${{ secrets.PROPELDATA_CI_TOKEN }}
+  BUILD_AWS_ACCESS_KEY_ID: ${{ secrets.BUILD_AWS_ACCESS_KEY_ID }}
+  BUILD_AWS_SECRET_ACCESS_KEY: ${{ secrets.BUILD_AWS_SECRET_ACCESS_KEY }}
+  BUILD_AWS_DEFAULT_REGION: ${{ secrets.BUILD_AWS_DEFAULT_REGION }}
+jobs:
+  unit-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: ${{ github.base_ref == 'main' && 'Production' || 'Preview' }}
+    env:
+      NEXT_PUBLIC_COGNITO_REGION: ${{ secrets.NEXT_PUBLIC_COGNITO_REGION }}
+      NEXT_PUBLIC_COGNITO_USER_POOL_ID: ${{ secrets.NEXT_PUBLIC_COGNITO_USER_POOL_ID }}
+      NEXT_PUBLIC_COGNITO_USER_POOL_WEB_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_COGNITO_USER_POOL_WEB_CLIENT_ID }}
+      NEXT_PUBLIC_COGNITO_PROXY_ENDPOINT: ${{ secrets.NEXT_PUBLIC_COGNITO_PROXY_ENDPOINT }}
+      NEXT_PUBLIC_ACCOUNT_MANAGEMENT_GRAPHQL_ENDPOINT: ${{ secrets.NEXT_PUBLIC_ACCOUNT_MANAGEMENT_GRAPHQL_ENDPOINT }}
+      NEXT_PUBLIC_CONFIG_MANAGEMENT_GRAPHQL_ENDPOINT: ${{ secrets.NEXT_PUBLIC_CONFIG_MANAGEMENT_GRAPHQL_ENDPOINT }}
+      NEXT_PUBLIC_QUERY_COUNT_METRIC_UNIQUE_NAME: ${{ secrets.NEXT_PUBLIC_QUERY_COUNT_METRIC_UNIQUE_NAME }}
+      NEXT_PUBLIC_DATA_POOL_DETAIL_METRIC_UNIQUE_NAME: ${{ secrets.NEXT_PUBLIC_DATA_POOL_DETAIL_METRIC_UNIQUE_NAME }}
+      NEXT_PUBLIC_PROPEL_UPLOAD_URL: ${{ secrets.NEXT_PUBLIC_PROPEL_UPLOAD_URL }}
+      SENTRY_DNS: ${{ secrets.SENTRY_DNS }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/prepare
+        with:
+          cache_key_suffix: '-unit-test'
+      - run: yarn test:ci

@@ -1,0 +1,62 @@
+name: 'prepare'
+description: 'compile the project with all the appropriate caches'
+inputs:
+  cache_key_suffix:
+    description: 'Suffix to use for the cache key'
+    required: false
+    default: ''
+  cache_fresh_start:
+    description: "Restarts the cache, this needs to be done sot that turborepo's cache doesn't grow unbounded https://github.com/vercel/turborepo/issues/863"
+    required: false
+    default: 'false'
+runs:
+  using: 'composite'
+  steps:
+    - name: 'Setup Node'
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+    - name: 'Cache node_modules'
+      uses: actions/cache@v3
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}${{ inputs.cache_key_suffix }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}${{ inputs.cache_key_suffix }}
+          ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          ${{ runner.os }}-yarn-
+    - name: 'Prune cache'
+      shell: bash
+      if: ${{ inputs.cache_fresh_start == 'true' }}
+      run: rm -rf node_modules/.cache
+    - name: 'Checkout Propel actions'
+      uses: actions/checkout@v3
+      with:
+        repository: propeldata/actions
+        token: ${{ env.PROPELDATA_CI_TOKEN }}
+        path: actions
+    - uses: ./actions/propel-code-artifact
+      with:
+        aws_access_key_id: ${{ env.BUILD_AWS_ACCESS_KEY_ID }}
+        aws_secret_access_key: ${{ env.BUILD_AWS_SECRET_ACCESS_KEY }}
+        aws_default_region: ${{ env.BUILD_AWS_DEFAULT_REGION }}
+    - name: 'Install the project'
+      shell: bash
+      run: yarn install
+    - name: 'Generate .env file'
+      shell: bash
+      run: |
+        touch .env.local
+        echo NEXT_PUBLIC_COGNITO_REGION=${{ env.NEXT_PUBLIC_COGNITO_REGION }} >> .env.local
+        echo NEXT_PUBLIC_COGNITO_USER_POOL_ID=${{ env.NEXT_PUBLIC_COGNITO_USER_POOL_ID }} >> .env.local
+        echo NEXT_PUBLIC_COGNITO_USER_POOL_WEB_CLIENT_ID=${{ env.NEXT_PUBLIC_COGNITO_USER_POOL_WEB_CLIENT_ID }} >> .env.local
+        echo NEXT_PUBLIC_COGNITO_PROXY_ENDPOINT=${{ env.NEXT_PUBLIC_COGNITO_PROXY_ENDPOINT }} >> .env.local
+        echo NEXT_PUBLIC_ACCOUNT_MANAGEMENT_GRAPHQL_ENDPOINT=${{ env.NEXT_PUBLIC_ACCOUNT_MANAGEMENT_GRAPHQL_ENDPOINT }} >> .env.local
+        echo NEXT_PUBLIC_CONFIG_MANAGEMENT_GRAPHQL_ENDPOINT=${{ env.NEXT_PUBLIC_CONFIG_MANAGEMENT_GRAPHQL_ENDPOINT }} >> .env.local
+        echo NEXT_PUBLIC_QUERY_COUNT_METRIC_UNIQUE_NAME=${{ env.NEXT_PUBLIC_QUERY_COUNT_METRIC_UNIQUE_NAME }} >> .env.local
+        echo NEXT_PUBLIC_DATA_POOL_DETAIL_METRIC_UNIQUE_NAME=${{ env.NEXT_PUBLIC_DATA_POOL_DETAIL_METRIC_UNIQUE_NAME }} >> .env.local
+        echo NEXT_PUBLIC_PROPEL_UPLOAD_URL=${{ env.NEXT_PUBLIC_PROPEL_UPLOAD_URL }} >> .env.local
+        echo SENTRY_DNS=${{ env.SENTRY_DNS }} >> .env.local
+    - name: 'Compile the project'
+      shell: bash
+      run: yarn prepare
