@@ -1,30 +1,31 @@
 import React from 'react'
 import type { AppProps } from 'next/app'
 import { Amplify } from 'aws-amplify'
+import { ThemeProvider as ColorModeProvider } from 'next-themes'
+import nookies from 'nookies'
 import '@/theme/globals.css'
 
-Amplify.configure({
-  Auth: {
-    region: process.env.NEXT_PUBLIC_COGNITO_REGION,
-    userPoolId: process.env.NEXT_PUBLIC_COGNITO_USER_POOL_ID,
-    userPoolWebClientId: process.env.NEXT_PUBLIC_COGNITO_USER_POOL_WEB_CLIENT_ID,
-    authenticationFlowType: 'USER_PASSWORD_AUTH',
-    endpoint: process.env.NEXT_PUBLIC_COGNITO_PROXY_ENDPOINT
-  },
-  oauth: {
-    domain: process.env.NEXT_PUBLIC_OKTA_DOMAIN,
-    scope: ['openid', 'email', 'profile'],
-    redirectSignIn: process.env.NEXT_PUBLIC_OKTA_REDIRECT_SIGNIN,
-    redirectSignOut: process.env.NEXT_PUBLIC_OKTA_REDIRECT_SIGNOUT,
-    responseType: 'code'
-  },
-  ssr: true
-})
+import { authConfig } from '@/auth'
+import { defaults } from '@/shared/utils'
 
-function ConsoleApp(props: AppProps) {
-  const { Component, pageProps } = props
+Amplify.configure(authConfig)
 
-  return <Component {...pageProps} />
+interface ConsoleAppProps extends AppProps {
+  colorMode: string
+}
+export default function ConsoleApp(props: ConsoleAppProps) {
+  const { Component, pageProps, colorMode } = props
+
+  return (
+    <ColorModeProvider attribute="class" defaultTheme={colorMode}>
+      <Component {...pageProps} />
+    </ColorModeProvider>
+  )
 }
 
-export default ConsoleApp
+ConsoleApp.getInitialProps = (context) => {
+  const cookies = nookies.get(context)
+  return {
+    colorMode: cookies.colorMode || defaults.COLOR_MODE
+  }
+}

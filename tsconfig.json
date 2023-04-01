@@ -17,10 +17,11 @@
     "incremental": true,
     "paths": {
       "@/graphql": ["src/graphql/index.ts"],
-      "@/shared/*": ["src/shared/*"],
-      "@/theme/*": ["src/ui/theme/*"],
+      "@/theme": ["src/ui/theme/index.ts"],
       "@/components": ["src/ui/components/index.ts"],
-      "@/atoms": ["src/atoms/index.ts"]
+      "@/state": ["src/state/index.ts"],
+      "@/auth": ["src/auth/index.ts"],
+      "@/shared/*": ["src/shared/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

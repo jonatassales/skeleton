@@ -13,7 +13,6 @@ const redirects = async () => {
     }
   ]
 }
-
 const webpack = (config, { webpack }) => {
   config.plugins.push(
     new webpack.DefinePlugin({
@@ -34,7 +33,7 @@ let config = {
 }
 
 const sentryOptions = {
-  hideSourceMaps: true,
+  hideSourceMaps: false,
   widenClientFileUpload: true,
   debug: true
 }

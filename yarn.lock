@@ -4387,6 +4387,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@phosphor-icons/core@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@phosphor-icons/core@npm:2.0.2::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2F%40phosphor-icons%2Fcore%2F-%2Fcore-2.0.2.tgz"
+  checksum: f956b678a98ce6b8ae6444d35370a618116bb40f779f0589aafae18365ce736ef9053a1a52c86ad6ce29cf96cfa6ea20fce16ea574727daca95f2561aa7aca55
+  languageName: node
+  linkType: hard
+
 "@phosphor-icons/react@npm:^2.0.6":
   version: 2.0.6
   resolution: "@phosphor-icons/react@npm:2.0.6::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2F%40phosphor-icons%2Freact%2F-%2Freact-2.0.6.tgz"
@@ -4443,6 +4450,7 @@ __metadata:
     "@hookform/resolvers": ^2.8.3
     "@monaco-editor/react": ^4.4.5
     "@next/bundle-analyzer": ^12.1.4
+    "@phosphor-icons/core": ^2.0.2
     "@phosphor-icons/react": ^2.0.6
     "@propeldata/account-management-api-definitions": ^0.19.14
     "@propeldata/config-management-api-definitions": ^1.44.0
@@ -4484,6 +4492,8 @@ __metadata:
     lint-staged: ^13.0.3
     monaco-editor: ^0.33.0
     next: ^13.2.4
+    next-themes: ^0.2.1
+    nookies: ^2.5.2
     postcss: ^8.4.18
     prettier: ^2.7.1
     prettier-plugin-tailwindcss: ^0.1.13
@@ -4493,6 +4503,7 @@ __metadata:
     react-dropzone: ^14.2.3
     react-hook-form: ^7.20.5
     react-lottie: ^1.2.3
+    react-no-ssr: ^1.1.0
     react-query: ^3.24.5
     react-spring: ^9.4.0
     start-server-and-test: 1.15.2
@@ -6447,7 +6458,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-runtime@npm:^6.26.0":
+"babel-runtime@npm:6.x.x, babel-runtime@npm:^6.26.0":
   version: 6.26.0
   resolution: "babel-runtime@npm:6.26.0::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2Fbabel-runtime%2F-%2Fbabel-runtime-6.26.0.tgz"
   dependencies:
@@ -10925,6 +10936,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"next-themes@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "next-themes@npm:0.2.1::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2Fnext-themes%2F-%2Fnext-themes-0.2.1.tgz"
+  peerDependencies:
+    next: "*"
+    react: "*"
+    react-dom: "*"
+  checksum: ebc248b956138e73436c4ed0a0f0a877a0a48a33156db577029b8b8469e48b5c777d61abf2baeb75953378febea74e067a4869ff90b4a3e94fce123289b862ba
+  languageName: node
+  linkType: hard
+
 "next@npm:^13.2.4":
   version: 13.2.4
   resolution: "next@npm:13.2.4::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2Fnext%2F-%2Fnext-13.2.4.tgz"
@@ -11065,6 +11087,16 @@ __metadata:
   version: 2.0.10
   resolution: "node-releases@npm:2.0.10::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2Fnode-releases%2F-%2Fnode-releases-2.0.10.tgz"
   checksum: d784ecde25696a15d449c4433077f5cce620ed30a1656c4abf31282bfc691a70d9618bae6868d247a67914d1be5cc4fde22f65a05f4398cdfb92e0fc83cadfbc
+  languageName: node
+  linkType: hard
+
+"nookies@npm:^2.5.2":
+  version: 2.5.2
+  resolution: "nookies@npm:2.5.2::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2Fnookies%2F-%2Fnookies-2.5.2.tgz"
+  dependencies:
+    cookie: ^0.4.1
+    set-cookie-parser: ^2.4.6
+  checksum: 4cc6fd8d0ab9fce840ccdb161eefe9dee581f441429fc729f279924491ebd1c12c220f889b6e315d66f8ea00bef944966969c966c957a6b9918ced7d7f9cc8a8
   languageName: node
   linkType: hard
 
@@ -11967,6 +11999,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-no-ssr@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "react-no-ssr@npm:1.1.0::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2Freact-no-ssr%2F-%2Freact-no-ssr-1.1.0.tgz"
+  dependencies:
+    babel-runtime: 6.x.x
+  peerDependencies:
+    react: ^0.14.0 || ^15.0.0
+  checksum: fa253cecbe6b28fe1531f22da72d241c8dc5f0729ddca40ec38244cad71ae8f8517d12438018769dbb4726e59cfa2fdab613aea3465d2e7862cbc727a44a2565
+  languageName: node
+  linkType: hard
+
 "react-query@npm:^3.24.5, react-query@npm:^3.39.2":
   version: 3.39.3
   resolution: "react-query@npm:3.39.3::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2Freact-query%2F-%2Freact-query-3.39.3.tgz"
@@ -12428,6 +12471,13 @@ __metadata:
   version: 2.0.0
   resolution: "set-blocking@npm:2.0.0::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2Fset-blocking%2F-%2Fset-blocking-2.0.0.tgz"
   checksum: 6e65a05f7cf7ebdf8b7c75b101e18c0b7e3dff4940d480efed8aad3a36a4005140b660fa1d804cb8bce911cac290441dc728084a30504d3516ac2ff7ad607b02
+  languageName: node
+  linkType: hard
+
+"set-cookie-parser@npm:^2.4.6":
+  version: 2.6.0
+  resolution: "set-cookie-parser@npm:2.6.0::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2Fset-cookie-parser%2F-%2Fset-cookie-parser-2.6.0.tgz"
+  checksum: bf11ebc594c53d84588f1b4c04f1b8ce14e0498b1c011b3d76b5c6d5aac481bbc3f7c5260ec4ce99bdc1d9aed19f9fc315e73166a36ca74d0f12349a73f6bdc9
   languageName: node
   linkType: hard
 

@@ -1,1 +1,1 @@
-export default null
+export * as defaults from './defaults'
