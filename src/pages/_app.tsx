@@ -7,8 +7,11 @@ import '@/theme/globals.css'
 
 import { authConfig } from '@/auth'
 import { defaults } from '@/shared/utils'
+import { QueryClient, QueryClientProvider } from 'react-query'
 
 Amplify.configure(authConfig)
+
+const queryClient = new QueryClient()
 
 interface ConsoleAppProps extends AppProps {
   colorMode: string
@@ -18,7 +21,9 @@ export default function ConsoleApp(props: ConsoleAppProps) {
 
   return (
     <ColorModeProvider attribute="class" defaultTheme={colorMode}>
-      <Component {...pageProps} />
+      <QueryClientProvider client={queryClient}>
+        <Component {...pageProps} />
+      </QueryClientProvider>
     </ColorModeProvider>
   )
 }

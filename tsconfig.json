@@ -17,8 +17,10 @@
     "incremental": true,
     "paths": {
       "@/graphql": ["src/graphql/index.ts"],
-      "@/theme": ["src/ui/theme/index.ts"],
-      "@/components": ["src/ui/components/index.ts"],
+      "@/theme": ["src/theme/index.ts"],
+      "@/theme/*": ["src/theme/*"],
+      "@/components": ["src/components/index.ts"],
+      "@/design-system": ["src/design-system/index.ts"],
       "@/state": ["src/state/index.ts"],
       "@/auth": ["src/auth/index.ts"],
       "@/shared/*": ["src/shared/*"]

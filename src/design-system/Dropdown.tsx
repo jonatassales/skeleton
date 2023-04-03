@@ -39,10 +39,7 @@ const contentStyles = {
   }
 }
 
-const DropdownContent = styled(DropdownMenuPrimitive.Content, contentStyles)
-const DropdownSubContent = styled(DropdownMenuPrimitive.SubContent, contentStyles)
-
-const DropdownArrow = styled(DropdownMenuPrimitive.Arrow, { fill: 'white' })
+export const DropdownArrow = styled(DropdownMenuPrimitive.Arrow, { fill: 'white' })
 
 const itemStyles = {
   all: 'unset',
@@ -68,10 +65,10 @@ const itemStyles = {
   }
 }
 
-const DropdownItem = styled(DropdownMenuPrimitive.Item, itemStyles)
-const DropdownCheckboxItem = styled(DropdownMenuPrimitive.CheckboxItem, itemStyles)
-const DropdownRadioItem = styled(DropdownMenuPrimitive.RadioItem, itemStyles)
-const DropdownSubTrigger = styled(DropdownMenuPrimitive.SubTrigger, {
+export const DropdownItem = styled(DropdownMenuPrimitive.Item, itemStyles)
+export const DropdownCheckboxItem = styled(DropdownMenuPrimitive.CheckboxItem, itemStyles)
+export const DropdownRadioItem = styled(DropdownMenuPrimitive.RadioItem, itemStyles)
+export const DropdownSubTrigger = styled(DropdownMenuPrimitive.SubTrigger, {
   '&[data-state="open"]': {
     backgroundColor: violet.violet4,
     color: violet.violet11
@@ -79,20 +76,20 @@ const DropdownSubTrigger = styled(DropdownMenuPrimitive.SubTrigger, {
   ...itemStyles
 })
 
-const DropdownLabel = styled(DropdownMenuPrimitive.Label, {
+export const DropdownLabel = styled(DropdownMenuPrimitive.Label, {
   paddingLeft: 25,
   fontSize: 12,
   lineHeight: '25px',
   color: mauve.mauve11
 })
 
-const DropdownSeparator = styled(DropdownMenuPrimitive.Separator, {
+export const DropdownSeparator = styled(DropdownMenuPrimitive.Separator, {
   height: 1,
   backgroundColor: violet.violet6,
   margin: 5
 })
 
-const DropdownItemIndicator = styled(DropdownMenuPrimitive.ItemIndicator, {
+export const DropdownItemIndicator = styled(DropdownMenuPrimitive.ItemIndicator, {
   position: 'absolute',
   left: 0,
   width: 25,
@@ -101,7 +98,7 @@ const DropdownItemIndicator = styled(DropdownMenuPrimitive.ItemIndicator, {
   justifyContent: 'center'
 })
 
-const RightSlot = styled('div', {
+export const DropdownRightSlot = styled('div', {
   marginLeft: 'auto',
   paddingLeft: 20,
   color: mauve.mauve11,
@@ -109,43 +106,30 @@ const RightSlot = styled('div', {
   '[data-disabled] &': { color: mauve.mauve8 }
 })
 
-export function Dropdown(props: DropdownMenuPrimitive.DropdownMenuProps) {
-  const { children, ...rootProps } = props
+const StyledDropdownContent = styled(DropdownMenuPrimitive.Content, contentStyles)
 
-  return <DropdownMenuPrimitive.Root {...rootProps}>{children}</DropdownMenuPrimitive.Root>
-}
+const StyledDropdownSubContent = styled(DropdownMenuPrimitive.SubContent, contentStyles)
 
-function Content(props: React.ComponentPropsWithRef<typeof DropdownMenuPrimitive.Content>) {
+export function DropdownContent(props: React.ComponentPropsWithRef<typeof DropdownMenuPrimitive.Content>) {
   const { children, ...rest } = props
 
   return (
     <DropdownMenuPrimitive.Portal>
-      <DropdownContent {...rest}>
+      <StyledDropdownContent {...rest}>
         {children}
         <DropdownArrow />
-      </DropdownContent>
+      </StyledDropdownContent>
     </DropdownMenuPrimitive.Portal>
   )
 }
 
-function SubContent(props: React.ComponentPropsWithRef<typeof DropdownMenuPrimitive.SubContent>) {
+export function DropdownSubContent(props: React.ComponentPropsWithRef<typeof DropdownMenuPrimitive.SubContent>) {
   return (
     <DropdownMenuPrimitive.Portal>
-      <DropdownSubContent {...props} />
+      <StyledDropdownSubContent {...props} />
     </DropdownMenuPrimitive.Portal>
   )
 }
 
-Dropdown.Trigger = DropdownMenuPrimitive.Trigger
-Dropdown.Separator = DropdownSeparator
-Dropdown.Content = Content
-Dropdown.SubContent = SubContent
-Dropdown.Label = DropdownLabel
-Dropdown.ItemIndicator = DropdownItemIndicator
-Dropdown.Item = DropdownItem
-Dropdown.SubTrigger = DropdownSubTrigger
-Dropdown.Sub = DropdownMenuPrimitive.Sub
-Dropdown.CheckboxItem = DropdownCheckboxItem
-Dropdown.RadioItem = DropdownRadioItem
-Dropdown.RadioGroup = DropdownMenuPrimitive.RadioGroup
-Dropdown.RightSlot = RightSlot
+export const Dropdown = DropdownMenuPrimitive.Root
+export const DropdownTrigger = DropdownMenuPrimitive.Trigger

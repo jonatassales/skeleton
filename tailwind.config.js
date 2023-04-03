@@ -6,12 +6,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: '#fcf9fe',
-
-        primary: '#7f56d9'
+        background: '#f7f5fb',
+        primary: '#7f56d9',
+        brand: '#050B49',
+        danger: '#ff4d4f'
       },
       backgroundImage: {
-        'gradient-conic': 'conic-gradient(var(--tw-gradient-stops))'
+        'gradient-conic': 'conic-gradient(var(--tw-gradient-stops))',
+        'clouds-pattern': "url('/images/clouds.svg')"
       },
       keyframes: {
         disco: {

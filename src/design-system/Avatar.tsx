@@ -1,9 +1,8 @@
-import React from 'react'
 import * as AvatarPrimitive from '@radix-ui/react-avatar'
 import { styled } from '@stitches/react'
 import { violet, blackA } from '@radix-ui/colors'
 
-const AvatarRoot = styled(AvatarPrimitive.Root, {
+export const Avatar = styled(AvatarPrimitive.Root, {
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -16,14 +15,14 @@ const AvatarRoot = styled(AvatarPrimitive.Root, {
   backgroundColor: blackA.blackA3
 })
 
-const AvatarImage = styled(AvatarPrimitive.Image, {
+export const AvatarImage = styled(AvatarPrimitive.Image, {
   width: '100%',
   height: '100%',
   objectFit: 'cover',
   borderRadius: 'inherit'
 })
 
-const AvatarFallback = styled(AvatarPrimitive.Fallback, {
+export const AvatarFallback = styled(AvatarPrimitive.Fallback, {
   width: '100%',
   height: '100%',
   display: 'flex',
@@ -35,10 +34,3 @@ const AvatarFallback = styled(AvatarPrimitive.Fallback, {
   lineHeight: 1,
   fontWeight: 500
 })
-
-export function Avatar(props: AvatarPrimitive.AvatarProps) {
-  return <AvatarRoot {...props}>{props.children}</AvatarRoot>
-}
-
-Avatar.Image = AvatarImage
-Avatar.Fallback = AvatarFallback

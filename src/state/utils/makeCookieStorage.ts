@@ -2,7 +2,7 @@ import { Cookie } from '@/shared/types'
 import { createJSONStorage } from 'jotai/utils'
 import { destroyCookie, parseCookies, setCookie } from 'nookies'
 
-export function makeCookieStorage<T>(cookieKey: Cookie) {
+export function makeCookieStorage<T>(cookieKey: Cookie, maxAge?: number) {
   return createJSONStorage<T>(() => ({
     getItem: () => {
       const cookies = parseCookies()
@@ -11,7 +11,7 @@ export function makeCookieStorage<T>(cookieKey: Cookie) {
     setItem: (key: string, newValue: string) => {
       const oneMonth = 30 * 24 * 60 * 60
       setCookie(null, key, newValue, {
-        maxAge: oneMonth,
+        maxAge: maxAge || oneMonth,
         path: '/'
       })
     },

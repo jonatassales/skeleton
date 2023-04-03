@@ -1,61 +1,51 @@
-import Image from 'next/image'
-import { CaretDown, UserCircleGear, UserCircle, UsersThree, SignOut } from '@phosphor-icons/react'
+import React from 'react'
+import { CloudWarning } from '@phosphor-icons/react'
 
-import { Avatar, Dropdown, ColorModeSwitcher } from '@/components'
+import {
+  Toast,
+  ToastTitle,
+  ToastDescription,
+  ToastProvider,
+  ToastViewport,
+  ToastAction,
+  Card,
+  Breadcrumb,
+  BreadcrumbItem
+} from '@/design-system'
+import { Layout } from '@/components'
 
 export default function Home() {
+  const [isWelcomeToastOpen, setIsWelcomeToastOpen] = React.useState(false)
+
+  React.useEffect(() => {
+    setTimeout(() => setIsWelcomeToastOpen(true), 1000)
+  }, [])
+
   return (
-    <div className={`grid h-screen grid-cols-[180px_auto] grid-rows-[64px_auto]`}>
-      <header className="sticky top-0 z-1 col-span-2 flex h-64 w-full items-center justify-between bg-white/90 px-28 shadow-sm backdrop-blur-sm dark:bg-slate-800">
-        <Image src="/images/propel-logo.png" width={104} height={32} alt="Propel logo" />
-
-        <div className="flex items-center gap-12">
-          <Avatar>
-            <Avatar.Image src="https://avatars.githubusercontent.com/u/6073626?s=120&v=4" alt="User's avatar picture" />
-            <Avatar.Fallback delayMs={600}>JS</Avatar.Fallback>
-          </Avatar>
-          <p className="hidden text-sm md:block">jonatas@propeldata.com</p>
-          <Dropdown>
-            <Dropdown.Trigger asChild>
-              <CaretDown size={18} />
-            </Dropdown.Trigger>
-
-            <Dropdown.Content sideOffset={5} className="mr-8 mt-24 ">
-              <Dropdown.Item>
-                <UserCircleGear className="mr-6" size={18} />
-                Account Settings
-              </Dropdown.Item>
-              <Dropdown.Separator />
-              <Dropdown.Item>
-                <UserCircle className="mr-6" size={18} />
-                My Profile
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <UsersThree className="mr-6" size={18} />
-                My Accounts
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <SignOut size={18} />
-                Logout
-              </Dropdown.Item>
-            </Dropdown.Content>
-          </Dropdown>
-          {/* TODO: (@jonatassales)This is probably causing layout shift issues */}
-          <ColorModeSwitcher />
-        </div>
-      </header>
-      <div className="sticky top-0 w-full border-r-[1px] bg-white"></div>
-      <main className="flex flex-col px-28 py-12">
-        {/* <button className="flex h-48 w-192 items-center justify-center overflow-hidden rounded-lg ring-red-500/50 ring-offset-black will-change-transform focus:outline-none focus:ring-1 focus:ring-offset-2">
-          <div className="z-10 flex h-[88%] w-[97%] items-center justify-center rounded-lg bg-black text-center text-white">
-            Button
+    <ToastProvider swipeDirection="right">
+      <Layout>
+        <Breadcrumb>
+          <BreadcrumbItem>Account</BreadcrumbItem>
+          <BreadcrumbItem>Data Pools</BreadcrumbItem>
+        </Breadcrumb>
+        <h1 className="mb-14">Data Pools</h1>
+        <Card>test</Card>
+      </Layout>
+      <Toast open={isWelcomeToastOpen} duration={5000}>
+        <ToastTitle>Welcome back!</ToastTitle>
+        <ToastDescription asChild>
+          <div className="flex items-center gap-6">
+            <CloudWarning className="text-danger" size={24} />
+            <p className="text-md">
+              We&apos;ve got <b>12</b> failing syncs
+            </p>
           </div>
-          <span
-            aria-hidden
-            className="absolute inset-0 z-0 scale-x-[2.0] blur before:absolute before:inset-0 before:top-1/2 before:aspect-square before:animate-disco before:bg-gradient-conic before:from-purple-700 before:via-red-500 before:to-amber-400"
-          />
-        </button> */}
-      </main>
-    </div>
+        </ToastDescription>
+        <ToastAction asChild altText="Dismiss toast message" onClick={() => setIsWelcomeToastOpen(false)}>
+          <button className="text-primary">Dismiss</button>
+        </ToastAction>
+      </Toast>
+      <ToastViewport />
+    </ToastProvider>
   )
 }

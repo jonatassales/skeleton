@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  * {
+    @apply box-border text-brand dark:text-background;
+  }
+
   html,
   body,
   #__next {
@@ -10,11 +14,7 @@
   }
 
   #__next {
-    @apply bg-background;
-  }
-
-  p {
-    @apply text-[#42307d] dark:text-background;
+    @apply bg-background dark:bg-slate-800;
   }
 
   h1 {
