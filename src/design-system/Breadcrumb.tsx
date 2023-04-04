@@ -18,6 +18,7 @@ const ListItem = styled('li', {
   gap: '5px',
   fontSize: '14px',
   color: '#5d6b98',
+  alignItems: 'center',
 
   '& > span': {
     fontSize: '17px',

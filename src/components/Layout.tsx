@@ -37,14 +37,14 @@ export function Layout(props: LayoutProps) {
         <div className="flex h-full items-center gap-64">
           <Image src="/images/propel-logo.png" width={104} height={32} alt="Propel logo" />
           <Dropdown>
-            <DropdownTrigger asChild>
-              <div className="flex h-full items-center gap-8 border-b-2 border-b-black dark:border-b-white">
-                <CodeSimple size={16} />
-                <p>development</p>
+            <div className="flex h-full items-center gap-8 border-b-2 border-b-black dark:border-b-white">
+              <CodeSimple size={16} />
+              <p>development</p>
+              <DropdownTrigger asChild>
                 <CaretDown size={18} />
-              </div>
-            </DropdownTrigger>
-            <DropdownContent sideOffset={5}>
+              </DropdownTrigger>
+            </div>
+            <DropdownContent sideOffset={30} align="end">
               <DropdownItem>
                 <div className="flex items-center gap-8">
                   <CodeSimple size={16} />
@@ -78,7 +78,7 @@ export function Layout(props: LayoutProps) {
               <CaretDown size={18} />
             </DropdownTrigger>
 
-            <DropdownContent sideOffset={5} className="mr-8 mt-24 ">
+            <DropdownContent sideOffset={30} align="end">
               <DropdownItem>
                 <Gear className="mr-6" size={18} />
                 Account Settings
@@ -102,7 +102,7 @@ export function Layout(props: LayoutProps) {
         </div>
       </header>
       <div className="dark: sticky top-0 w-full border-r-[1px] bg-white dark:bg-slate-900"></div>
-      <main className="flex flex-col px-28 py-12">{children}</main>
+      <main className="flex flex-col p-20">{children}</main>
     </div>
   )
 }
