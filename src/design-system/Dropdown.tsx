@@ -43,14 +43,13 @@ export const DropdownArrow = styled(DropdownMenuPrimitive.Arrow, { fill: 'white'
 
 const itemStyles = {
   all: 'unset',
-  fontSize: 13,
-  lineHeight: 1,
-  color: violet.violet11,
+  fontSize: '1rem',
+  lineHeight: 1.5,
+  color: '#5d6b98',
   borderRadius: 3,
   display: 'flex',
   alignItems: 'center',
-  height: 25,
-  padding: '0 5px',
+  padding: '6px 5px',
   position: 'relative',
   userSelect: 'none',
 
@@ -60,8 +59,8 @@ const itemStyles = {
   },
 
   '&[data-highlighted]': {
-    backgroundColor: violet.violet9,
-    color: violet.violet1
+    backgroundColor: '#ffffff',
+    color: '#6947C3'
   }
 }
 

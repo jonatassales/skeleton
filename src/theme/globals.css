@@ -4,7 +4,7 @@
 
 @layer base {
   * {
-    @apply box-border text-brand dark:text-background;
+    @apply m-0 box-border appearance-none border-0 p-0 font-normal text-[optimizelegibility] antialiased outline-none;
   }
 
   html,
@@ -13,20 +13,32 @@
     @apply h-full;
   }
 
-  #__next {
-    @apply bg-background dark:bg-slate-800;
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  li,
+  a,
+  label,
+  th,
+  td,
+  div,
+  span {
+    @apply text-primary-900 dark:text-gray-200;
+  }
+
+  svg {
+    @apply mx-0;
   }
 
   h1 {
     @apply text-2xl;
   }
+
   h2 {
     @apply text-xl;
-  }
-}
-
-@layer components {
-  .btn-primary {
-    @apply bg-blue-500;
   }
 }

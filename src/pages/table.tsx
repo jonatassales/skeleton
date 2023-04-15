@@ -1,5 +1,5 @@
 import React from 'react'
-import { useQuery } from 'react-query'
+import useSWR from 'swr'
 import {
   PaginationState,
   useReactTable,
@@ -10,7 +10,7 @@ import {
   SortingState
 } from '@tanstack/react-table'
 import { faker } from '@faker-js/faker'
-import { Layout } from '@/components'
+import { Layout, TableLoader } from '@/components'
 import { Card } from '@/design-system'
 import { CaretDown, CaretUp } from '@phosphor-icons/react'
 import { useRouter } from 'next/router'
@@ -55,7 +55,7 @@ const newDataPool = (): DataPool => {
 
 const data = Array.from({ length: 50 }, () => newDataPool())
 
-export async function fetchData(options: { pageIndex: number; pageSize: number }) {
+async function fetchData(options: { pageIndex: number; pageSize: number }) {
   await new Promise((r) => setTimeout(r, 500))
 
   return {
@@ -135,14 +135,16 @@ export default function Table() {
     pageSize
   }
 
-  const dataQuery = useQuery(['data', fetchDataOptions], () => fetchData(fetchDataOptions), { keepPreviousData: true })
+  const { data, isLoading } = useSWR(['table', fetchDataOptions], () => fetchData(fetchDataOptions), {
+    keepPreviousData: true
+  })
 
   const defaultData = React.useMemo(() => [], [])
 
   const table = useReactTable<DataPool>({
-    data: dataQuery.data?.rows ?? defaultData,
+    data: data?.rows ?? defaultData,
     columns,
-    pageCount: dataQuery.data?.pageCount ?? -1,
+    pageCount: data?.pageCount ?? -1,
     state: {
       pagination: {
         pageIndex,
@@ -163,49 +165,53 @@ export default function Table() {
       <Card className="px-20 py-40">
         <div className="p-2">
           <div className="h-2" />
-          <table className="w-full border-collapse text-left">
-            <thead>
-              {table.getHeaderGroups().map((headerGroup) => (
-                <tr key={headerGroup.id}>
-                  {headerGroup.headers.map((header) => {
-                    return (
-                      <th key={header.id} colSpan={header.colSpan} className="px-4 py-2">
-                        {header.isPlaceholder ? null : (
-                          <div
-                            className={
-                              header.column.getCanSort() ? 'flex cursor-pointer select-none items-center gap-4' : ''
-                            }
-                            onClick={header.column.getToggleSortingHandler()}
-                          >
-                            {flexRender(header.column.columnDef.header, header.getContext())}
-                            {{
-                              asc: <CaretUp size={18} color="#050B49" />,
-                              desc: <CaretDown size={18} color="#050B49" />
-                            }[header.column.getIsSorted() as string] ?? null}
-                          </div>
-                        )}
-                      </th>
-                    )
-                  })}
-                </tr>
-              ))}
-            </thead>
-            <tbody>
-              {table.getRowModel().rows.map((row) => {
-                return (
-                  <tr key={row.id} className="border-t border-gray-200">
-                    {row.getVisibleCells().map((cell) => {
+          {isLoading ? (
+            <TableLoader />
+          ) : (
+            <table className="w-full border-collapse text-left">
+              <thead>
+                {table.getHeaderGroups().map((headerGroup) => (
+                  <tr key={headerGroup.id}>
+                    {headerGroup.headers.map((header) => {
                       return (
-                        <td key={cell.id} className="px-4 py-2">
-                          {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                        </td>
+                        <th key={header.id} colSpan={header.colSpan} className="px-4 py-2">
+                          {header.isPlaceholder ? null : (
+                            <div
+                              className={
+                                header.column.getCanSort() ? 'flex cursor-pointer select-none items-center gap-4' : ''
+                              }
+                              onClick={header.column.getToggleSortingHandler()}
+                            >
+                              {flexRender(header.column.columnDef.header, header.getContext())}
+                              {{
+                                asc: <CaretUp size={18} color="#050B49" />,
+                                desc: <CaretDown size={18} color="#050B49" />
+                              }[header.column.getIsSorted() as string] ?? null}
+                            </div>
+                          )}
+                        </th>
                       )
                     })}
                   </tr>
-                )
-              })}
-            </tbody>
-          </table>
+                ))}
+              </thead>
+              <tbody>
+                {table.getRowModel().rows.map((row) => {
+                  return (
+                    <tr key={row.id} className="border-t border-gray-200">
+                      {row.getVisibleCells().map((cell) => {
+                        return (
+                          <td key={cell.id} className="px-4 py-2">
+                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                          </td>
+                        )
+                      })}
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          )}
           <div className="h-2" />
           <div className="flex items-center gap-2">
             <button
@@ -243,7 +249,7 @@ export default function Table() {
               onChange={(e) => {
                 table.setPageSize(Number(e.target.value))
               }}
-              className="rounded border p-1 text-brand"
+              className="text-brand rounded border p-1"
             >
               {[10, 20, 30, 40, 50].map((pageSize) => (
                 <option key={pageSize} value={pageSize}>
@@ -251,7 +257,6 @@ export default function Table() {
                 </option>
               ))}
             </select>
-            {dataQuery.isFetching ? 'Loading...' : null}
           </div>
           <div>{table.getRowModel().rows.length} Rows</div>
         </div>

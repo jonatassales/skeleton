@@ -2,7 +2,8 @@ import { atomWithStorage } from 'jotai/utils'
 
 import { ColorMode } from '@/theme'
 import { Cookie } from '@/shared/types'
-import { makeCookieStorage } from '@/state'
+
+import { makeCookieStorage } from './utils'
 
 export const colorModeAtom = atomWithStorage<ColorMode>(
   Cookie.ColorMode,

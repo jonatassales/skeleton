@@ -3507,22 +3507,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/plugin-helpers@npm:^2.6.0":
-  version: 2.7.2
-  resolution: "@graphql-codegen/plugin-helpers@npm:2.7.2::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2F%40graphql-codegen%2Fplugin-helpers%2F-%2Fplugin-helpers-2.7.2.tgz"
-  dependencies:
-    "@graphql-tools/utils": ^8.8.0
-    change-case-all: 1.0.14
-    common-tags: 1.8.2
-    import-from: 4.0.0
-    lodash: ~4.17.0
-    tslib: ~2.4.0
-  peerDependencies:
-    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: 66e0d507ad5db60b67092ebf7632d464d56ab446ac8fd87c293e00d9016944912d8cf9199e3e026b0a9247a50f50c4118a44f49e13675db64211652cd6259b05
-  languageName: node
-  linkType: hard
-
 "@graphql-codegen/plugin-helpers@npm:^3.1.1, @graphql-codegen/plugin-helpers@npm:^3.1.2":
   version: 3.1.2
   resolution: "@graphql-codegen/plugin-helpers@npm:3.1.2::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2F%40graphql-codegen%2Fplugin-helpers%2F-%2Fplugin-helpers-3.1.2.tgz"
@@ -3567,21 +3551,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/typescript-react-query@npm:^3.1.0":
-  version: 3.6.2
-  resolution: "@graphql-codegen/typescript-react-query@npm:3.6.2::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2F%40graphql-codegen%2Ftypescript-react-query%2F-%2Ftypescript-react-query-3.6.2.tgz"
-  dependencies:
-    "@graphql-codegen/plugin-helpers": ^2.6.0
-    "@graphql-codegen/visitor-plugin-common": 2.12.0
-    auto-bind: ~4.0.0
-    change-case-all: 1.0.14
-    tslib: ~2.4.0
-  peerDependencies:
-    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: c205384108a8c430357b25f5c48c2ff10784525682f8b0e4aed21761a2b1d11a167b1c8a86dc36ffc95aae7c1df627146fcde4f35b396c9cddbafc4c33498d4c
-  languageName: node
-  linkType: hard
-
 "@graphql-codegen/typescript@npm:^2.3.0, @graphql-codegen/typescript@npm:^2.8.8":
   version: 2.8.8
   resolution: "@graphql-codegen/typescript@npm:2.8.8::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2F%40graphql-codegen%2Ftypescript%2F-%2Ftypescript-2.8.8.tgz"
@@ -3594,26 +3563,6 @@ __metadata:
   peerDependencies:
     graphql: ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
   checksum: ebc338bc88fd239b9ef70d900778791af2c68f7a0fa074d870cc5fcaee3ea182dfce8a1f366f53bcd5e81f95bb9e26e00e1b41e6b2ad3305cf7e6f44bf57d649
-  languageName: node
-  linkType: hard
-
-"@graphql-codegen/visitor-plugin-common@npm:2.12.0":
-  version: 2.12.0
-  resolution: "@graphql-codegen/visitor-plugin-common@npm:2.12.0::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2F%40graphql-codegen%2Fvisitor-plugin-common%2F-%2Fvisitor-plugin-common-2.12.0.tgz"
-  dependencies:
-    "@graphql-codegen/plugin-helpers": ^2.6.0
-    "@graphql-tools/optimize": ^1.3.0
-    "@graphql-tools/relay-operation-optimizer": ^6.5.0
-    "@graphql-tools/utils": ^8.8.0
-    auto-bind: ~4.0.0
-    change-case-all: 1.0.14
-    dependency-graph: ^0.11.0
-    graphql-tag: ^2.11.0
-    parse-filepath: ^1.0.2
-    tslib: ~2.4.0
-  peerDependencies:
-    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: cffd0e431f8df905c54e8d9ca2c236ec38bba06a690ddeabbc8242491a378e09f5e68aa11486d2f2422b8cf6f6add7a5543a75df4e21c848969f39cdbe6e74d6
   languageName: node
   linkType: hard
 
@@ -3975,17 +3924,6 @@ __metadata:
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
   checksum: 94ed12df5f49e5c338322ffd931236a687a3d5c443bf499f9baab5d4fcd9792234111142be8aa506a01ca2e82732996c4e1d8f6159ff9cc7fdc5c97f63e55226
-  languageName: node
-  linkType: hard
-
-"@graphql-tools/utils@npm:^8.8.0":
-  version: 8.13.1
-  resolution: "@graphql-tools/utils@npm:8.13.1::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2F%40graphql-tools%2Futils%2F-%2Futils-8.13.1.tgz"
-  dependencies:
-    tslib: ^2.4.0
-  peerDependencies:
-    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-  checksum: ff04fdeb29e9ac596ea53386cd5b23cd741bb14c1997c6b0ba3c34ca165bd82b528a355e8c8e2ba726eb39e833ba9cbb0851ba0addb8c6d367089a1145bf9a49
   languageName: node
   linkType: hard
 
@@ -4454,7 +4392,6 @@ __metadata:
     "@graphql-codegen/cli": ^2.2.2
     "@graphql-codegen/typescript": ^2.3.0
     "@graphql-codegen/typescript-operations": ^2.2.0
-    "@graphql-codegen/typescript-react-query": ^3.1.0
     "@hookform/resolvers": ^2.8.3
     "@monaco-editor/react": ^4.4.5
     "@next/bundle-analyzer": ^12.1.4
@@ -4469,10 +4406,13 @@ __metadata:
     "@radix-ui/react-dropdown-menu": ^2.0.4
     "@radix-ui/react-form": ^0.0.2
     "@radix-ui/react-label": ^2.0.1
+    "@radix-ui/react-scroll-area": ^1.0.3
     "@radix-ui/react-select": ^1.2.1
+    "@radix-ui/react-separator": ^1.0.2
     "@radix-ui/react-slot": ^1.0.1
     "@radix-ui/react-tabs": ^1.0.3
     "@radix-ui/react-toast": ^1.1.3
+    "@radix-ui/react-toggle-group": ^1.0.3
     "@radix-ui/react-tooltip": ^1.0.5
     "@sentry/nextjs": ^7.43.0
     "@stitches/react": ^1.2.8
@@ -4480,9 +4420,11 @@ __metadata:
     "@types/d3-format": ^3.0.1
     "@types/jest": ^28.1.7
     "@types/node": ^12.12.21
+    "@types/nookies": ^2.0.3
     "@types/react": ^18.0.30
     "@types/react-dom": ^18.0.11
     "@types/react-lottie": ^1.2.6
+    "@types/react-no-ssr": ^1.1.3
     "@types/uuid": ^8.3.4
     "@typescript-eslint/eslint-plugin": ^5.46.1
     autoprefixer: ^10.4.12
@@ -4498,7 +4440,7 @@ __metadata:
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-tailwindcss: ^3.10.1
     graphql: ^16.0.1
-    graphql-request: ^3.6.1
+    graphql-request: ^5.2.0
     husky: ^8.0.1
     jotai: v1.11.2
     jwt-decode: ^3.1.2
@@ -4516,10 +4458,12 @@ __metadata:
     react-dropzone: ^14.2.3
     react-hook-form: ^7.20.5
     react-lottie: ^1.2.3
+    react-no-ssr: ^1.1.0
     react-query: ^3.24.5
     react-spring: ^9.4.0
     react-table: ^7.8.0
     start-server-and-test: 1.15.2
+    swr: ^2.1.2
     tailwind-merge: ^1.11.0
     tailwindcss: ^3.2.1
     typescript: ^4.8.3
@@ -4904,6 +4848,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@radix-ui/react-scroll-area@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "@radix-ui/react-scroll-area@npm:1.0.3"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/number": 1.0.0
+    "@radix-ui/primitive": 1.0.0
+    "@radix-ui/react-compose-refs": 1.0.0
+    "@radix-ui/react-context": 1.0.0
+    "@radix-ui/react-direction": 1.0.0
+    "@radix-ui/react-presence": 1.0.0
+    "@radix-ui/react-primitive": 1.0.2
+    "@radix-ui/react-use-callback-ref": 1.0.0
+    "@radix-ui/react-use-layout-effect": 1.0.0
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+    react-dom: ^16.8 || ^17.0 || ^18.0
+  checksum: 54f6d604f9ef6112ce44f0ccaf2dea96ec22ae94d67fe822d8e6388c15b647a33bbdc448d1fc86d870ee6e79a8f531bd4b171b51d0b140272d429e1b941ee12a
+  languageName: node
+  linkType: hard
+
 "@radix-ui/react-select@npm:^1.2.1":
   version: 1.2.1
   resolution: "@radix-ui/react-select@npm:1.2.1::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2F%40radix-ui%2Freact-select%2F-%2Freact-select-1.2.1.tgz"
@@ -4934,6 +4899,19 @@ __metadata:
     react: ^16.8 || ^17.0 || ^18.0
     react-dom: ^16.8 || ^17.0 || ^18.0
   checksum: 884b00af83bea49caf887955187113421c2418729095113ebb4fcf831c264e0ac8596745533a722afae5bc45c822dc568c537cd0dfd14e0d2a3b66b7475d9445
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-separator@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@radix-ui/react-separator@npm:1.0.2"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/react-primitive": 1.0.2
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+    react-dom: ^16.8 || ^17.0 || ^18.0
+  checksum: ab5eae3310b37b00132c882268200d55f21b7ee200fdc1263456292681adb6227853d8b180378105a3317866959d901ef55e0291ae540867634339f085aef61e
   languageName: node
   linkType: hard
 
@@ -4990,6 +4968,40 @@ __metadata:
     react: ^16.8 || ^17.0 || ^18.0
     react-dom: ^16.8 || ^17.0 || ^18.0
   checksum: b95baa857eea69b92a019ad511ac3da2fa2c8d6689593d6db576fe9aec2408c36f27b7ea4deda4c9b12b695103ece963fe4a270909b640416a11c0ab8115de95
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-toggle-group@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "@radix-ui/react-toggle-group@npm:1.0.3"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/primitive": 1.0.0
+    "@radix-ui/react-context": 1.0.0
+    "@radix-ui/react-direction": 1.0.0
+    "@radix-ui/react-primitive": 1.0.2
+    "@radix-ui/react-roving-focus": 1.0.3
+    "@radix-ui/react-toggle": 1.0.2
+    "@radix-ui/react-use-controllable-state": 1.0.0
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+    react-dom: ^16.8 || ^17.0 || ^18.0
+  checksum: a9bbd39151a902873c8909bc1333f9a9b35b3b5218c274c1af25de7522bcfadaa2778309ac58f9179d9e4a0a6e6768e916975b79a210c5b7ff05bb8f3716c3f6
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-toggle@npm:1.0.2":
+  version: 1.0.2
+  resolution: "@radix-ui/react-toggle@npm:1.0.2"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/primitive": 1.0.0
+    "@radix-ui/react-primitive": 1.0.2
+    "@radix-ui/react-use-controllable-state": 1.0.0
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+    react-dom: ^16.8 || ^17.0 || ^18.0
+  checksum: 95acca05dcf849b18a4e7a3ca1180732ece7208500fa1a4402eb422d22772f33a05c8744e72d68503ba520ad6602340298c021b1c04686e783b224b0ab9aad22
   languageName: node
   linkType: hard
 
@@ -5694,6 +5706,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/nookies@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "@types/nookies@npm:2.0.3"
+  dependencies:
+    nookies: "*"
+  checksum: 69968ea46236a66ee821939e81b2974e3c8117344bdc02219172e7bb19443627b810778ac92f571790c33eebcc582e78956558c8dbf8472264fdf165cbb16bb2
+  languageName: node
+  linkType: hard
+
 "@types/parse-json@npm:^4.0.0":
   version: 4.0.0
   resolution: "@types/parse-json@npm:4.0.0::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2F%40types%2Fparse-json%2F-%2Fparse-json-4.0.0.tgz"
@@ -5723,6 +5744,15 @@ __metadata:
   dependencies:
     "@types/react": "*"
   checksum: 7930bad2cc998d62c3be4a0c66edfcbf1d87af6ffca5befa860acec706fd62e6e1e964ecffe88c3ed5a42668606e9ff1f43cc1beff764c679f68aa05166ce746
+  languageName: node
+  linkType: hard
+
+"@types/react-no-ssr@npm:^1.1.3":
+  version: 1.1.3
+  resolution: "@types/react-no-ssr@npm:1.1.3"
+  dependencies:
+    "@types/react": "*"
+  checksum: 11f385aa4f8412c92984b38d1d3bae52e5bcfec3dc97d39429990f0c7afbf6eeace7f83b81449ca9b9c6ead557bd601f325f824e7fd9e3c93791ac6a3cdf2c27
   languageName: node
   linkType: hard
 
@@ -6533,6 +6563,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"babel-runtime@npm:6.x.x":
+  version: 6.26.0
+  resolution: "babel-runtime@npm:6.26.0"
+  dependencies:
+    core-js: ^2.4.0
+    regenerator-runtime: ^0.11.0
+  checksum: 8aeade94665e67a73c1ccc10f6fd42ba0c689b980032b70929de7a6d9a12eb87ef51902733f8fefede35afea7a5c3ef7e916a64d503446c1eedc9e3284bd3d50
+  languageName: node
+  linkType: hard
+
 "babel-runtime@npm:^6.26.0":
   version: 6.26.0
   resolution: "babel-runtime@npm:6.26.0::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2Fbabel-runtime%2F-%2Fbabel-runtime-6.26.0.tgz"
@@ -6868,24 +6908,6 @@ __metadata:
     ansi-styles: ^4.1.0
     supports-color: ^7.1.0
   checksum: fe75c9d5c76a7a98d45495b91b2172fa3b7a09e0cc9370e5c8feb1c567b85c4288e2b3fded7cfdd7359ac28d6b3844feb8b82b8686842e93d23c827c417e83fc
-  languageName: node
-  linkType: hard
-
-"change-case-all@npm:1.0.14":
-  version: 1.0.14
-  resolution: "change-case-all@npm:1.0.14::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2Fchange-case-all%2F-%2Fchange-case-all-1.0.14.tgz"
-  dependencies:
-    change-case: ^4.1.2
-    is-lower-case: ^2.0.2
-    is-upper-case: ^2.0.2
-    lower-case: ^2.0.2
-    lower-case-first: ^2.0.2
-    sponge-case: ^1.0.1
-    swap-case: ^2.0.2
-    title-case: ^3.0.3
-    upper-case: ^2.0.2
-    upper-case-first: ^2.0.2
-  checksum: 6ff893e005e1bf115cc2969cc5ca3610f7c6ece9e90b7927ed12c980c7d3ea9a565150d246c6dba0fee21aaacbd38d69b98a4670d96b892c76f66e46616506d3
   languageName: node
   linkType: hard
 
@@ -9181,6 +9203,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"graphql-request@npm:^5.2.0":
+  version: 5.2.0
+  resolution: "graphql-request@npm:5.2.0"
+  dependencies:
+    "@graphql-typed-document-node/core": ^3.1.1
+    cross-fetch: ^3.1.5
+    extract-files: ^9.0.0
+    form-data: ^3.0.0
+  peerDependencies:
+    graphql: 14 - 16
+  checksum: a8aa37816378898e6fc8c4db04a1c114c98f98d90718cf1680bd96b22724bd43b1210619f9b0d328b5c1acb4f7b76d2227a2537cd5ab059bb54cf0debecb33bf
+  languageName: node
+  linkType: hard
+
 "graphql-tag@npm:^2.11.0":
   version: 2.12.6
   resolution: "graphql-tag@npm:2.12.6::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2Fgraphql-tag%2F-%2Fgraphql-tag-2.12.6.tgz"
@@ -11184,6 +11220,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nookies@npm:*":
+  version: 2.5.2
+  resolution: "nookies@npm:2.5.2"
+  dependencies:
+    cookie: ^0.4.1
+    set-cookie-parser: ^2.4.6
+  checksum: 4cc6fd8d0ab9fce840ccdb161eefe9dee581f441429fc729f279924491ebd1c12c220f889b6e315d66f8ea00bef944966969c966c957a6b9918ced7d7f9cc8a8
+  languageName: node
+  linkType: hard
+
 "nookies@npm:^2.5.2":
   version: 2.5.2
   resolution: "nookies@npm:2.5.2::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2Fnookies%2F-%2Fnookies-2.5.2.tgz"
@@ -12090,6 +12136,17 @@ __metadata:
   peerDependencies:
     react-native: ">=0.56"
   checksum: 9163368ebd935d897f6ea0f9e95c476aa7608080e3848bb6c6f85db01b9de3498d857795c84df5492d6511a55aebf89492860ac886b652a9a7a3efdb19913f87
+  languageName: node
+  linkType: hard
+
+"react-no-ssr@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "react-no-ssr@npm:1.1.0"
+  dependencies:
+    babel-runtime: 6.x.x
+  peerDependencies:
+    react: ^0.14.0 || ^15.0.0
+  checksum: fa253cecbe6b28fe1531f22da72d241c8dc5f0729ddca40ec38244cad71ae8f8517d12438018769dbb4726e59cfa2fdab613aea3465d2e7862cbc727a44a2565
   languageName: node
   linkType: hard
 
@@ -13092,6 +13149,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"swr@npm:^2.1.2":
+  version: 2.1.2
+  resolution: "swr@npm:2.1.2::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2Fswr%2F-%2Fswr-2.1.2.tgz"
+  dependencies:
+    use-sync-external-store: ^1.2.0
+  peerDependencies:
+    react: ^16.11.0 || ^17.0.0 || ^18.0.0
+  checksum: 90010a1a1ba3ecd699f64ef5e3de9a40c291e220803e811c46fabb858d908fd74039f4a2c668cf8fd21dbb3f9d9b3d8300915292ed9933d0e4bdac1193ba8fb8
+  languageName: node
+  linkType: hard
+
 "synckit@npm:^0.8.4":
   version: 0.8.5
   resolution: "synckit@npm:0.8.5::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2Fsynckit%2F-%2Fsynckit-0.8.5.tgz"
@@ -13700,6 +13768,15 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 925d1922f9853e516eaad526b6fed1be38008073067274f0ecc3f56b17bb8ab63480140dd7c271f94150027c996cea4efe83d3e3525e8f3eda22055f6a39220b
+  languageName: node
+  linkType: hard
+
+"use-sync-external-store@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "use-sync-external-store@npm:1.2.0::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2Fuse-sync-external-store%2F-%2Fuse-sync-external-store-1.2.0.tgz"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 5c639e0f8da3521d605f59ce5be9e094ca772bd44a4ce7322b055a6f58eeed8dda3c94cabd90c7a41fb6fa852210092008afe48f7038792fd47501f33299116a
   languageName: node
   linkType: hard
 

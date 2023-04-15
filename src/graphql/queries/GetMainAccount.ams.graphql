@@ -1,0 +1,8 @@
+query GetMainAccount {
+  accounts(first: 1) {
+    nodes {
+      id
+      uniqueName
+    }
+  }
+}

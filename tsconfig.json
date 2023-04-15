@@ -16,13 +16,14 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/graphql": ["src/graphql/index.ts"],
-      "@/theme": ["src/theme/index.ts"],
+      "@/graphql": ["src/graphql"],
+      "@/graphql/*": ["src/graphql/*"],
+      "@/theme": ["src/theme"],
       "@/theme/*": ["src/theme/*"],
-      "@/components": ["src/components/index.ts"],
-      "@/design-system": ["src/design-system/index.ts"],
-      "@/state": ["src/state/index.ts"],
-      "@/auth": ["src/auth/index.ts"],
+      "@/components": ["src/components"],
+      "@/design-system": ["src/design-system"],
+      "@/atoms": ["src/atoms"],
+      "@/auth": ["src/auth"],
       "@/shared/*": ["src/shared/*"]
     }
   },

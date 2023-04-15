@@ -1,5 +1,6 @@
 import React from 'react'
 import type { NextPage } from 'next'
+import { useAtomValue } from 'jotai'
 import Head from 'next/head'
 import Link from 'next/link'
 import { Auth } from 'aws-amplify'
@@ -9,9 +10,11 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useRouter } from 'next/router'
 
-import { Button, Input, Form, FormLabel, FormField, FormMessage, FormControl, FormSubmit, Card } from '@/design-system'
+import { usernameAtom } from '@/atoms'
 import { AuthLayout } from '@/components'
-import { AuthStorageKey, UserStorageKey } from '@/shared/types'
+import { LocalStorage } from '@/shared/types'
+import { Button, Input, Form, FormLabel, FormField, FormMessage, FormControl, FormSubmit, Card } from '@/design-system'
+import { SIGVTALRM } from 'constants'
 
 interface EmailValidationSchema {
   email: string
@@ -54,11 +57,13 @@ const LoginPage: NextPage = () => {
         <title>Login - Propel</title>
         <meta name="description" content="Login Page" />
       </Head>
-      {preferredEmail ? (
-        <PasswordForm preferredEmail={preferredEmail} setPreferredEmail={setPreferredEmail} />
-      ) : (
-        <EmailForm setPreferredEmail={setPreferredEmail} />
-      )}
+      <div className="flex h-full w-full items-center justify-center">
+        {preferredEmail ? (
+          <PasswordForm preferredEmail={preferredEmail} setPreferredEmail={setPreferredEmail} />
+        ) : (
+          <EmailForm setPreferredEmail={setPreferredEmail} />
+        )}
+      </div>
     </AuthLayout>
   )
 }
@@ -80,14 +85,14 @@ function EmailForm(props: EmailFormProps) {
 
   const handleEmailFormSubmit: SubmitHandler<EmailValidationSchema> = (data) => {
     setPreferredEmail(data.email)
-    window.localStorage.setItem(AuthStorageKey.PreferredLoginEmail, data.email)
+    window.localStorage.setItem(LocalStorage.PreferredLoginEmail, data.email)
   }
 
   const formDisabled = Boolean(!watch('email') || errors.email)
 
   return (
-    <Card className="px-24 py-20 md:w-[420px] md:px-48 md:py-36">
-      <h1 className="mb-7 text-center text-4xl font-medium md:text-left lg:block">Log in</h1>
+    <Card className="am:px-48 w-full px-24 py-20 sm:absolute sm:right-[10%] sm:top-[30%] sm:w-[420px] sm:py-36">
+      <h1 className="mb-7 text-4xl font-medium md:text-left lg:block">Log in</h1>
       <Form onSubmit={handleSubmit(handleEmailFormSubmit)} noValidate>
         <FormField name="email">
           <div className="flex items-baseline justify-between">
@@ -119,6 +124,8 @@ function PasswordForm(props: PasswordFormProps) {
 
   const [isSubmitting, setIsSubmitting] = React.useState(false)
 
+  const username = useAtomValue(usernameAtom)
+
   const {
     register,
     handleSubmit,
@@ -140,7 +147,7 @@ function PasswordForm(props: PasswordFormProps) {
 
   const handleEmptyEmail = () => {
     setPreferredEmail('')
-    window.localStorage.removeItem(AuthStorageKey.PreferredLoginEmail)
+    window.localStorage.removeItem(LocalStorage.PreferredLoginEmail)
   }
 
   const handlePasswordFormSubmit: SubmitHandler<PasswordValidationSchema> = async (data) => {
@@ -148,11 +155,7 @@ function PasswordForm(props: PasswordFormProps) {
     try {
       setIsSubmitting(true)
 
-      const neverLoggedIn = window.localStorage.getItem(AuthStorageKey.NeverLoggedIn)
-      const username = window.localStorage.getItem(UserStorageKey.Username)
-
-      const parsedUsername = username ? JSON.parse(username) : null
-      const parsedNeverLoggedIn = neverLoggedIn ? JSON.parse(neverLoggedIn) : null
+      const neverLoggedIn = JSON.parse(window.localStorage.getItem(LocalStorage.NeverLoggedIn) as string)
 
       const user = await Auth.signIn(preferredEmail, password)
 
@@ -162,18 +165,19 @@ function PasswordForm(props: PasswordFormProps) {
         email: user.attributes.email
       })
 
-      if (user.username !== parsedUsername) {
+      if (user.username !== username) {
         cleanupJotaiStorage()
         // queryClient.removeQueries()
       }
 
-      if (parsedNeverLoggedIn) {
-        router.push('/account-creation')
-      } else {
-        router.push('/')
-      }
+      router.push('/')
+      // if (neverLoggedIn) {
+      //   router.push('/account-creation')
+      // } else {
+      //   router.push('/')
+      // }
     } catch (error) {
-      console.error('Something went wrong. Please try again later')
+      // console.error('Something went wrong. Please try again later')
       const tags = { feature: 'login' }
       Sentry.captureException(error, { tags })
     } finally {
@@ -193,11 +197,13 @@ function PasswordForm(props: PasswordFormProps) {
   const formDisabled = Boolean(!watch('password') || errors.password || isSubmitting)
 
   return (
-    <Card className="w-auto max-w-[332px] px-24 py-20 md:max-w-[420px] md:px-48 md:py-36">
-      <h1 className="mb-7 text-center text-4xl font-medium md:text-left lg:block">Log in with</h1>
+    <Card className="w-full px-24 py-20 sm:absolute sm:right-[10%] sm:top-[30%] sm:w-[420px] sm:px-48 sm:py-36">
+      <h1 className="mb-7 text-center text-4xl font-medium text-primary-900 md:text-left lg:block">Log in with</h1>
       <div className="mb-40 mt-16 flex items-baseline gap-20">
-        <p className="overflow-hidden text-ellipsis text-xl">{preferredEmail}</p>
-        <a onClick={handleEmptyEmail}>Change</a>
+        <p className="w-full overflow-hidden text-ellipsis text-xl text-primary-900">{preferredEmail}</p>
+        <a className="text-primary-900" onClick={handleEmptyEmail}>
+          Change
+        </a>
       </div>
       <Form onSubmit={handleSubmit(handlePasswordFormSubmit)} noValidate>
         <FormField name="password">
@@ -210,14 +216,14 @@ function PasswordForm(props: PasswordFormProps) {
             <Input {...register('password')} type="password" required />
           </FormControl>
         </FormField>
-        <div className="mt-5 grid grid-cols-2 gap-5">
-          {/* <FormSubmit asChild> */}
-          <Button loading={isSubmitting} onClick={handleSubmit(handlePasswordFormSubmit)} disabled={formDisabled}>
-            Login
-          </Button>
-          {/* </FormSubmit> */}
-          <Link className="text-center" href="/password-recovery" passHref>
-            Forgot password?
+        <div className="mt-5 grid grid-cols-2 items-center gap-5">
+          <FormSubmit asChild>
+            <Button loading={isSubmitting} onClick={handleSubmit(handlePasswordFormSubmit)} disabled={formDisabled}>
+              Login
+            </Button>
+          </FormSubmit>
+          <Link className="flex justify-center" href="/password-recovery" passHref>
+            <span className="inline-flex w-full whitespace-nowrap text-primary-900">Forgot password?</span>
           </Link>
         </div>
       </Form>

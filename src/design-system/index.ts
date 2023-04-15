@@ -12,8 +12,14 @@ export * from './Label'
 export * from './Spinner'
 export * from './Breadcrumb'
 export * from './Table'
+export * from './IconButton'
+export * from './Tag'
+export * from './TagInfo'
+export * from './ToggleGroup'
+export * from './Separator'
+export * from './ScrollArea'
 
 /**
- * Design Tokens
+ * Utils
  */
-export * from './tokens'
+export * from './utils'

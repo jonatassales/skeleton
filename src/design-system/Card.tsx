@@ -1,7 +1,8 @@
 import { styled } from '@stitches/react'
 
 export const Card = styled('div', {
-  boxShadow: '0 1px 4px rgba(0, 0, 0, 0.05), 0 4px 16px rgba(0, 0, 0, 0.06)',
-  borderRadius: '6px',
-  backgroundColor: '#fff'
+  boxShadow: '0 24px 48px -12px rgba(0,0,0,.18)',
+  borderRadius: '12px',
+  backgroundColor: '#ffffff',
+  padding: '2.5rem 2rem'
 })

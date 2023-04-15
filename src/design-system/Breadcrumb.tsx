@@ -1,7 +1,7 @@
 import React from 'react'
 import { styled } from '@stitches/react'
 
-import { getValidChildren } from './getValidChildren'
+import { getValidChildren } from './utils'
 
 const Container = styled('nav', {
   display: 'flex',

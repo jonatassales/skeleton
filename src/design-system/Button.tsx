@@ -7,12 +7,12 @@ import { Spinner } from '@/design-system'
 const ButtonWrapper = styled('button', {
   width: '100%',
   whiteSpace: 'nowrap',
-  height: 40,
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
-  padding: '0px 12px',
+  padding: '12px 32px',
   borderRadius: '6px',
+  border: '1px solid #8A3FFF',
   fontSize: '16px',
   fontWeight: 500,
   letterSpacing: '-0.025em',
@@ -30,11 +30,12 @@ const ButtonWrapper = styled('button', {
         }
       },
       outlined: {
-        backgroundColor: 'transparent',
-        color: '#7169e2',
-        border: '1px solid #7169e2',
+        backgroundColor: 'white',
+        color: '#7f56d9',
+        border: '2px solid #d6bbfb',
+        fontWeight: 400,
         '&:hover': {
-          backgroundColor: '#eeecfb'
+          backgroundColor: '#f1eafe'
         }
       }
     }
