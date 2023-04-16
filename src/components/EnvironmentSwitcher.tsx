@@ -6,7 +6,7 @@ import { Dropdown, DropdownTrigger, DropdownContent, DropdownItem, IconButton } 
 export function EnvironmentSwitcher() {
   return (
     <Dropdown>
-      <div className="flex h-full items-center gap-8 border-b-2 border-b-black dark:border-b-gray-200">
+      <div className="flex h-full items-center gap-8 border-b-2 border-b-black dark:border-b-gray-400">
         <CodeSimple size={16} />
         <p>development</p>
         <DropdownTrigger asChild>

@@ -5,7 +5,6 @@ import { styled } from '@stitches/react'
 import { Spinner } from '@/design-system'
 
 const ButtonWrapper = styled('button', {
-  width: '100%',
   whiteSpace: 'nowrap',
   display: 'inline-flex',
   alignItems: 'center',
@@ -37,6 +36,15 @@ const ButtonWrapper = styled('button', {
         '&:hover': {
           backgroundColor: '#f1eafe'
         }
+      },
+      ghost: {
+        backgroundColor: 'transparent',
+        color: '#7f56d9',
+        border: 'none',
+        fontWeight: 400,
+        '&:hover': {
+          color: '#42307D'
+        }
       }
     }
   }
@@ -44,7 +52,7 @@ const ButtonWrapper = styled('button', {
 
 interface ButtonProps extends React.ComponentProps<typeof ButtonWrapper> {
   children: React.ReactNode
-  variant?: 'primary' | 'outlined'
+  variant?: 'primary' | 'outlined' | 'ghost'
   leftIcon?: React.ReactNode
   rightIcon?: React.ReactNode
   loading?: boolean
@@ -65,16 +73,17 @@ export const ButtonRightIcon = styled('span', {
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const { children, variant = 'primary', leftIcon, rightIcon, loading = false, ...rest } = props
 
-  const mainNode = [leftIcon, children, rightIcon]
-
   const primaryColor = {
     primary: '#FFF',
-    outlined: '#7169e2'
+    outlined: '#7169e2',
+    ghost: '#7169e2'
   }[variant]
 
   return (
     <ButtonWrapper ref={ref} variant={variant} {...rest}>
-      {loading ? <Spinner size={18} primaryColor={primaryColor} /> : mainNode}
+      {leftIcon && <ButtonLeftIcon>{leftIcon}</ButtonLeftIcon>}
+      {loading ? <Spinner size={18} primaryColor={primaryColor} /> : children}
+      {rightIcon && <ButtonRightIcon>{rightIcon}</ButtonRightIcon>}
     </ButtonWrapper>
   )
 })

@@ -34,7 +34,9 @@ const tokens = {
     'primary-600': '#7F56D9',
     'primary-700': '#6941C6',
     'primary-800': '#53389E',
-    'primary-900': '#42307D',
+    'primary-900': '#30255A',
+    'primary-950': '#22183C',
+    'primary-1000': '#120A1E',
 
     /**
      * Error scale
@@ -174,8 +176,8 @@ const tokens = {
   },
 
   borderRadius: {
-    DEFAULT: '4px',
-    2: '6px',
+    1: '4px',
+    DEFAULT: '6px',
     3: '8px',
     4: '12px',
     pill: '9999px'
@@ -183,17 +185,13 @@ const tokens = {
 
   boxShadow: {
     sm: '0 1px 2px 0 rgba(64,73,104,.16)',
-    shadow: '0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06)',
+    DEFAULT: '0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06)',
     md: '0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06)',
-    lg: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)',
-    xl: '0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 10px 10px -5px rgba(0, 0, 0, 0.04)',
-    '2xl': '0px 25px 50px -12px rgba(0, 0, 0, 0.25)',
-    inner: 'inset 0px 2px 4px rgba(0, 0, 0, 0.06)',
-    none: 'none'
+    lg: '0 24px 48px -12px rgba(0,0,0,.18)'
   },
 
   fontSize: {
-    xs: ['0.75rem', { lineHeight: '1rem' }],
+    xs: ['0.65rem', { lineHeight: '0.75rem' }],
     sm: ['0.875rem', { lineHeight: '1.25rem' }],
     md: ['1rem', { lineHeight: '1.5rem' }],
     lg: ['1.125rem', { lineHeight: '1.75rem' }],

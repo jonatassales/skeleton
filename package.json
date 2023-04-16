@@ -18,7 +18,8 @@
     "tailwind": "tailwindcss -o build.css --minify",
     "postinstall": "husky install scripts",
     "analyze": "ANALYZE=true NODE_ENV=development yarn build",
-    "commit": "cz"
+    "commit": "cz",
+    "cypress": "cypress open"
   },
   "dependencies": {
     "@faker-js/faker": "^7.6.0",

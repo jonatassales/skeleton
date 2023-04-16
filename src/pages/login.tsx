@@ -91,14 +91,18 @@ function EmailForm(props: EmailFormProps) {
   const formDisabled = Boolean(!watch('email') || errors.email)
 
   return (
-    <Card className="am:px-48 w-full px-24 py-20 sm:absolute sm:right-[10%] sm:top-[30%] sm:w-[420px] sm:py-36">
-      <h1 className="mb-7 text-4xl font-medium md:text-left lg:block">Log in</h1>
+    <Card className="am:px-48 w-full p-20 shadow-lg sm:absolute sm:right-[10%] sm:top-[30%] sm:w-[420px] sm:px-[2rem] sm:py-[2.5rem]">
+      <h1 className="mb-7 text-4xl font-medium dark:text-primary-900 md:text-left lg:block">Log in</h1>
       <Form onSubmit={handleSubmit(handleEmailFormSubmit)} noValidate>
         <FormField name="email">
           <div className="flex items-baseline justify-between">
-            <FormLabel>Email</FormLabel>
-            <FormMessage match="valueMissing">Please enter your email</FormMessage>
-            <FormMessage match="typeMismatch">Please provide a valid email</FormMessage>
+            <FormLabel className="dark:text-primary-900">Email</FormLabel>
+            <FormMessage match="valueMissing" role="alert">
+              Please enter your email
+            </FormMessage>
+            <FormMessage match="typeMismatch" role="alert">
+              Please provide a valid email
+            </FormMessage>
           </div>
           <FormControl asChild>
             <Input {...register('email')} type="email" required />
@@ -197,10 +201,14 @@ function PasswordForm(props: PasswordFormProps) {
   const formDisabled = Boolean(!watch('password') || errors.password || isSubmitting)
 
   return (
-    <Card className="w-full px-24 py-20 sm:absolute sm:right-[10%] sm:top-[30%] sm:w-[420px] sm:px-48 sm:py-36">
-      <h1 className="mb-7 text-center text-4xl font-medium text-primary-900 md:text-left lg:block">Log in with</h1>
+    <Card className="w-full p-[2.5rem_2rem] px-24 py-20 shadow-lg sm:absolute sm:right-[10%] sm:top-[30%] sm:w-[420px] sm:px-48 sm:py-36">
+      <h1 className="mb-7 text-center text-4xl font-medium text-primary-900 dark:text-primary-900 md:text-left lg:block">
+        Log in with
+      </h1>
       <div className="mb-40 mt-16 flex items-baseline gap-20">
-        <p className="w-full overflow-hidden text-ellipsis text-xl text-primary-900">{preferredEmail}</p>
+        <p className="w-full overflow-hidden text-ellipsis text-xl text-primary-900 dark:text-primary-900">
+          {preferredEmail}
+        </p>
         <a className="text-primary-900" onClick={handleEmptyEmail}>
           Change
         </a>
@@ -208,7 +216,7 @@ function PasswordForm(props: PasswordFormProps) {
       <Form onSubmit={handleSubmit(handlePasswordFormSubmit)} noValidate>
         <FormField name="password">
           <div className="flex items-baseline justify-between">
-            <FormLabel>Password</FormLabel>
+            <FormLabel className="dark:text-primary-900">Password</FormLabel>
             <FormMessage match="valueMissing">Please enter your email</FormMessage>
             <FormMessage match="typeMismatch">Please provide a valid email</FormMessage>
           </div>
@@ -223,7 +231,9 @@ function PasswordForm(props: PasswordFormProps) {
             </Button>
           </FormSubmit>
           <Link className="flex justify-center" href="/password-recovery" passHref>
-            <span className="inline-flex w-full whitespace-nowrap text-primary-900">Forgot password?</span>
+            <span className="inline-flex w-full whitespace-nowrap text-primary-900 dark:text-primary-900">
+              Forgot password?
+            </span>
           </Link>
         </div>
       </Form>

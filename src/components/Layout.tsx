@@ -29,8 +29,8 @@ export function DesktopLayout(props: LayoutProps) {
   const { children } = props
 
   return (
-    <div className={`hidden h-screen grid-cols-[88px_auto] grid-rows-[64px_auto] sm:grid md:grid-cols-[180px_auto]`}>
-      <header className=" sticky top-0 z-1 col-span-2 flex h-64 w-full items-center justify-between bg-white/90 px-12 shadow-sm backdrop-blur-sm dark:border-b-[1px] dark:border-b-gray-800 dark:bg-[#111322] dark:bg-gradient-to-r dark:from-[#111322] dark:to-[#30374F] md:px-28">
+    <div className={`hidden h-screen grid-cols-[66px_auto] grid-rows-[64px_auto] sm:grid md:grid-cols-[180px_auto]`}>
+      <header className="sticky top-0 z-1 col-span-2 flex h-64 w-full items-center justify-between bg-white/90 px-12 shadow-sm backdrop-blur-sm dark:border-b-[1px] dark:border-b-primary-950 dark:bg-primary-1000 dark:bg-gradient-to-r dark:from-primary-1000 dark:to-primary-900 md:px-28">
         <div className="flex h-full items-center">
           <Logo />
           <EnvironmentSwitcher />
@@ -40,8 +40,10 @@ export function DesktopLayout(props: LayoutProps) {
           <ColorModeSwitcher />
         </div>
       </header>
-      <SideMenu />
-      <main className="flex flex-col bg-primary-25 p-20 dark:bg-[#111322]">{children}</main>
+      <div className="border-r-[1px] border-r-gray-200 pt-20 dark:border-r-gray-800">
+        <SideMenu />
+      </div>
+      <main className="flex flex-col bg-primary-25 p-20 dark:bg-primary-1000">{children}</main>
     </div>
   )
 }
@@ -56,7 +58,7 @@ export function MobileLayout(props: LayoutProps) {
 
   return (
     <div className={`grid h-screen w-screen grid-cols-1 grid-rows-[64px_auto] sm:hidden`}>
-      <header className="sticky top-0 z-1 col-span-2 flex h-64 w-full items-center justify-between bg-white/90 px-12 shadow-sm backdrop-blur-sm dark:bg-slate-900 dark:bg-gradient-to-r dark:from-[#111322] dark:to-[#30374F]">
+      <header className="sticky top-0 z-1 col-span-2 flex h-64 w-full items-center justify-between bg-white/90 px-12 shadow-sm backdrop-blur-sm dark:border-b-primary-950 dark:bg-gradient-to-r dark:from-primary-1000 dark:to-primary-950/95">
         <div className="flex items-center">
           <Logo />
           <Tag className="border-spacing-0 bg-success-100 text-success-600">development</Tag>
