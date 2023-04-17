@@ -9,10 +9,12 @@ generates:
     plugins:
       - typescript
       - typescript-operations
-  # src/graphql/__generated__/cms-types.ts:
-  #   schema: ./node_modules/@propeldata/config-management-api-definitions/dist/private.graphql
-  #   documents:
-  #     - src/**/*.cms.graphql
-  #   plugins:
-  #     - typescript
-  #     - typescript-operations
+      - typescript-graphql-request
+  src/graphql/__generated__/cms-types.ts:
+    schema: ./node_modules/@propeldata/config-management-api-definitions/dist/private.graphql
+    documents:
+      - src/**/*.cms.graphql
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-graphql-request

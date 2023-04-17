@@ -16,7 +16,7 @@ export const MobileDrawerMenu = (props: MobileDrawerProps) => {
   return (
     <div
       className={cn(
-        'absolute h-screen w-screen transform overflow-hidden break-all bg-primary-25/90 px-12 pb-12 pt-64 backdrop-blur-sm transition-all duration-200 ease-out dark:bg-primary-1000/95',
+        'absolute z-10 h-screen w-screen transform overflow-hidden break-all bg-primary-25/90 px-12 pb-12 pt-64 backdrop-blur-sm transition-all duration-200 ease-out dark:bg-primary-1000/95',
         isOpen ? 'translate-y-0' : 'translate-y-[-100%]',
         className
       )}

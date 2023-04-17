@@ -17,7 +17,6 @@ const ListItem = styled('li', {
   display: 'flex',
   gap: '5px',
   fontSize: '14px',
-  color: '#5d6b98',
   alignItems: 'center',
 
   '& > span': {
@@ -38,9 +37,7 @@ const ListItem = styled('li', {
   }
 })
 
-const ListItemCurrent = styled(ListItem, {
-  color: '#050B49'
-})
+const ListItemCurrent = styled(ListItem, {})
 
 interface BreadcrumbProps extends React.ComponentPropsWithoutRef<'nav'> {
   children: React.ReactNode

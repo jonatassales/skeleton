@@ -6,6 +6,7 @@ import { Spinner } from '@/design-system'
 
 const ButtonWrapper = styled('button', {
   whiteSpace: 'nowrap',
+  height: '48px',
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',

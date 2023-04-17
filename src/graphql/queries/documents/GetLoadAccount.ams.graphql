@@ -1,0 +1,8 @@
+query GetLoadAccount {
+  accounts(first: 1) {
+    nodes {
+      id
+      uniqueName
+    }
+  }
+}

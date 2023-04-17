@@ -184,8 +184,8 @@ export default function Table() {
                             >
                               {flexRender(header.column.columnDef.header, header.getContext())}
                               {{
-                                asc: <CaretUp size={18} color="#050B49" />,
-                                desc: <CaretDown size={18} color="#050B49" />
+                                asc: <CaretUp size={18} color="#22183C" />,
+                                desc: <CaretDown size={18} color="#22183C" />
                               }[header.column.getIsSorted() as string] ?? null}
                             </div>
                           )}
@@ -249,7 +249,7 @@ export default function Table() {
               onChange={(e) => {
                 table.setPageSize(Number(e.target.value))
               }}
-              className="text-brand rounded border p-1"
+              className="rounded border p-1 text-primary-950"
             >
               {[10, 20, 30, 40, 50].map((pageSize) => (
                 <option key={pageSize} value={pageSize}>

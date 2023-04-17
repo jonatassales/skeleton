@@ -17,6 +17,7 @@
     "incremental": true,
     "paths": {
       "@/graphql": ["src/graphql"],
+      "@/cache": ["src/cache"],
       "@/graphql/*": ["src/graphql/*"],
       "@/theme": ["src/theme"],
       "@/theme/*": ["src/theme/*"],
@@ -24,7 +25,8 @@
       "@/design-system": ["src/design-system"],
       "@/atoms": ["src/atoms"],
       "@/auth": ["src/auth"],
-      "@/shared/*": ["src/shared/*"]
+      "@/shared/*": ["src/shared/*"],
+      "@/shared": ["src/shared"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

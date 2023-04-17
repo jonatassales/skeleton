@@ -1,0 +1,27 @@
+fragment dataPool on DataPool {
+  id
+  status
+  table
+  uniqueName
+  recordCount
+  sizeInTerabytes
+  syncs {
+    nodes {
+      id
+      createdAt
+    }
+  }
+  timestamp {
+    columnName
+  }
+  availableMeasures {
+    nodes {
+      name
+    }
+  }
+  columns {
+    nodes {
+      name
+    }
+  }
+}

@@ -3507,6 +3507,38 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@graphql-codegen/plugin-helpers@npm:^2.7.2":
+  version: 2.7.2
+  resolution: "@graphql-codegen/plugin-helpers@npm:2.7.2"
+  dependencies:
+    "@graphql-tools/utils": ^8.8.0
+    change-case-all: 1.0.14
+    common-tags: 1.8.2
+    import-from: 4.0.0
+    lodash: ~4.17.0
+    tslib: ~2.4.0
+  peerDependencies:
+    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: 66e0d507ad5db60b67092ebf7632d464d56ab446ac8fd87c293e00d9016944912d8cf9199e3e026b0a9247a50f50c4118a44f49e13675db64211652cd6259b05
+  languageName: node
+  linkType: hard
+
+"@graphql-codegen/plugin-helpers@npm:^3.0.0":
+  version: 3.1.2
+  resolution: "@graphql-codegen/plugin-helpers@npm:3.1.2"
+  dependencies:
+    "@graphql-tools/utils": ^9.0.0
+    change-case-all: 1.0.15
+    common-tags: 1.8.2
+    import-from: 4.0.0
+    lodash: ~4.17.0
+    tslib: ~2.4.0
+  peerDependencies:
+    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: 4d0c615738570681b5ffd3c07305a35d6aa3e5fd87c9199c0a670b95529ab865b1df978ce584d5b415107a567ac484e56a48db129a6d1d2eb8a254fbd3260e39
+  languageName: node
+  linkType: hard
+
 "@graphql-codegen/plugin-helpers@npm:^3.1.1, @graphql-codegen/plugin-helpers@npm:^3.1.2":
   version: 3.1.2
   resolution: "@graphql-codegen/plugin-helpers@npm:3.1.2::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2F%40graphql-codegen%2Fplugin-helpers%2F-%2Fplugin-helpers-3.1.2.tgz"
@@ -3533,6 +3565,22 @@ __metadata:
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
   checksum: f44338ac66e6a1f6238c33cdf65778bb467fe5a93767988135cb4e112d3be4d3c7e8aeeffe323754e8d6b0cbc5a52cb71452bfc42a15bc7031ebaa9b3d5da676
+  languageName: node
+  linkType: hard
+
+"@graphql-codegen/typescript-graphql-request@npm:^4.5.9":
+  version: 4.5.9
+  resolution: "@graphql-codegen/typescript-graphql-request@npm:4.5.9"
+  dependencies:
+    "@graphql-codegen/plugin-helpers": ^3.0.0
+    "@graphql-codegen/visitor-plugin-common": 2.13.1
+    auto-bind: ~4.0.0
+    tslib: ~2.4.0
+  peerDependencies:
+    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+    graphql-request: ^3.4.0 || ^4.0.0 || ~5.0.0 || ~5.1.0
+    graphql-tag: ^2.0.0
+  checksum: fe924b3d17a1aee8bc5022e4b6cc0b8acba81c5e3ebf410892472898e2e44823ff339f58d3354902d7a5f77e28ef57968d55b1623ba4884a74eed54bb14b66c3
   languageName: node
   linkType: hard
 
@@ -3563,6 +3611,26 @@ __metadata:
   peerDependencies:
     graphql: ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
   checksum: ebc338bc88fd239b9ef70d900778791af2c68f7a0fa074d870cc5fcaee3ea182dfce8a1f366f53bcd5e81f95bb9e26e00e1b41e6b2ad3305cf7e6f44bf57d649
+  languageName: node
+  linkType: hard
+
+"@graphql-codegen/visitor-plugin-common@npm:2.13.1":
+  version: 2.13.1
+  resolution: "@graphql-codegen/visitor-plugin-common@npm:2.13.1"
+  dependencies:
+    "@graphql-codegen/plugin-helpers": ^2.7.2
+    "@graphql-tools/optimize": ^1.3.0
+    "@graphql-tools/relay-operation-optimizer": ^6.5.0
+    "@graphql-tools/utils": ^8.8.0
+    auto-bind: ~4.0.0
+    change-case-all: 1.0.14
+    dependency-graph: ^0.11.0
+    graphql-tag: ^2.11.0
+    parse-filepath: ^1.0.2
+    tslib: ~2.4.0
+  peerDependencies:
+    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: 0c329aa6e435602f2f6c1569ec2091b7850f58cc5dca7ac763c38c82588545ec1110c1de587f5f3949b11ff96f94401d1e63e329607d78424583b276fd08f1ae
   languageName: node
   linkType: hard
 
@@ -3924,6 +3992,17 @@ __metadata:
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
   checksum: 94ed12df5f49e5c338322ffd931236a687a3d5c443bf499f9baab5d4fcd9792234111142be8aa506a01ca2e82732996c4e1d8f6159ff9cc7fdc5c97f63e55226
+  languageName: node
+  linkType: hard
+
+"@graphql-tools/utils@npm:^8.8.0":
+  version: 8.13.1
+  resolution: "@graphql-tools/utils@npm:8.13.1"
+  dependencies:
+    tslib: ^2.4.0
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+  checksum: ff04fdeb29e9ac596ea53386cd5b23cd741bb14c1997c6b0ba3c34ca165bd82b528a355e8c8e2ba726eb39e833ba9cbb0851ba0addb8c6d367089a1145bf9a49
   languageName: node
   linkType: hard
 
@@ -4391,6 +4470,7 @@ __metadata:
     "@faker-js/faker": ^7.6.0
     "@graphql-codegen/cli": ^2.2.2
     "@graphql-codegen/typescript": ^2.3.0
+    "@graphql-codegen/typescript-graphql-request": ^4.5.9
     "@graphql-codegen/typescript-operations": ^2.2.0
     "@hookform/resolvers": ^2.8.3
     "@monaco-editor/react": ^4.4.5
@@ -4400,7 +4480,7 @@ __metadata:
     "@propeldata/account-management-api-definitions": ^0.19.14
     "@propeldata/config-management-api-definitions": ^1.44.0
     "@propeldata/parquet-lib": ^0.0.6
-    "@propeldata/react-time-series": ^0.28.13
+    "@propeldata/react-time-series": ^0.30.10
     "@radix-ui/colors": ^0.1.8
     "@radix-ui/react-avatar": ^1.0.2
     "@radix-ui/react-dropdown-menu": ^2.0.4
@@ -4440,7 +4520,7 @@ __metadata:
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-tailwindcss: ^3.10.1
     graphql: ^16.0.1
-    graphql-request: ^5.2.0
+    graphql-request: 5.1.0
     husky: ^8.0.1
     jotai: v1.11.2
     jwt-decode: ^3.1.2
@@ -4452,7 +4532,7 @@ __metadata:
     postcss: ^8.4.18
     prettier: ^2.7.1
     prettier-plugin-tailwindcss: ^0.1.13
-    pretty-bytes: ^5.6.0
+    pretty-bytes: ^6.1.0
     react: ^18.2.0
     react-dom: ^18.2.0
     react-dropzone: ^14.2.3
@@ -4479,51 +4559,52 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@propeldata/react-time-series@npm:^0.28.13":
-  version: 0.28.16
-  resolution: "@propeldata/react-time-series@npm:0.28.16::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2F%40propeldata%2Freact-time-series%2F-%2Freact-time-series-0.28.16.tgz"
+"@propeldata/react-time-series@npm:^0.30.10":
+  version: 0.30.10
+  resolution: "@propeldata/react-time-series@npm:0.30.10::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40propeldata%2Freact-time-series%2F-%2Freact-time-series-0.30.10.tgz"
   dependencies:
     "@emotion/css": ^11.10.5
-    "@propeldata/ui-kit-components": ^0.2.1
-    "@propeldata/ui-kit-graphql": ^0.2.5
-    "@propeldata/ui-kit-plugins": ^0.2.0
-    chart.js: ^4.1.2
+    "@propeldata/ui-kit-components": ^0.2.2
+    "@propeldata/ui-kit-graphql": ^0.2.7
+    "@propeldata/ui-kit-plugins": ^0.2.1
+    chart.js: ^4.2.1
+    chartjs-adapter-date-fns: 2.0.1
     date-fns: ^2.29.3
     graphql: ^16.6.0
     graphql-request: ^3.6.1
   peerDependencies:
     react: ^16.8 || ^17.0 || ^18.0
     react-dom: ^16.8 || ^17.0 || ^18.0
-  checksum: 88a2353d58b8692b7d2bf55756bdb70dd1f73eb63a4ca28ddabb5c52fe9a4d44a6f61713815b5ce1fe411ad4f0db1b578938c896e9fb55fc1d53a914ba3a2089
+  checksum: e67aa2bb01e8f676bbdb6f6c2fa325182e3981cb640ae81bc8a70ec05d747455263fa25826da61b2afe74a6d20935e063e632987b915bdb2905d70126c85fb20
   languageName: node
   linkType: hard
 
-"@propeldata/ui-kit-components@npm:^0.2.1":
-  version: 0.2.1
-  resolution: "@propeldata/ui-kit-components@npm:0.2.1::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2F%40propeldata%2Fui-kit-components%2F-%2Fui-kit-components-0.2.1.tgz"
+"@propeldata/ui-kit-components@npm:^0.2.2":
+  version: 0.2.2
+  resolution: "@propeldata/ui-kit-components@npm:0.2.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40propeldata%2Fui-kit-components%2F-%2Fui-kit-components-0.2.2.tgz"
   peerDependencies:
     react: ^16.8 || ^17.0 || ^18.0
     react-dom: ^16.8 || ^17.0 || ^18.0
-  checksum: 60d7858298b695c524f715c41c48d5826f9e39fe69b65c0c0bff2cc5862d1f0e4b54dbf33e68885f0a04d999c1b83e4a6853a66c5a464a505270662ceee268cc
+  checksum: e43186a3583c91d81b9dcfde9e3a28bf3b4716cc632f7432a8fb122c977d8c909ad688228810ef49e84f68c1586ba05acf5b649abaf51c1413814fb9ae2e6f6d
   languageName: node
   linkType: hard
 
-"@propeldata/ui-kit-graphql@npm:^0.2.5":
-  version: 0.2.6
-  resolution: "@propeldata/ui-kit-graphql@npm:0.2.6::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2F%40propeldata%2Fui-kit-graphql%2F-%2Fui-kit-graphql-0.2.6.tgz"
+"@propeldata/ui-kit-graphql@npm:^0.2.7":
+  version: 0.2.7
+  resolution: "@propeldata/ui-kit-graphql@npm:0.2.7::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40propeldata%2Fui-kit-graphql%2F-%2Fui-kit-graphql-0.2.7.tgz"
   dependencies:
     graphql: ^16.6.0
     react-query: ^3.39.2
   peerDependencies:
     graphql: ^16.6
-  checksum: 5de82c9dcccb665ecc2222639b109b0b6e13907964f53f6e3ef5be97994d07cab43c9d4a9f5e215e0966f94da8b1a813f8a0505179ee8ad5925c2d2f6f278d31
+  checksum: d34248cd9479117a91c783042c2c786ce0e76446c3d4c5ec6c6903ede5d305778245bac948637590ba645cdd9fcd70e16b1300192a2defd415e245efb5e02925
   languageName: node
   linkType: hard
 
-"@propeldata/ui-kit-plugins@npm:^0.2.0":
-  version: 0.2.0
-  resolution: "@propeldata/ui-kit-plugins@npm:0.2.0::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2F%40propeldata%2Fui-kit-plugins%2F-%2Fui-kit-plugins-0.2.0.tgz"
-  checksum: dd7f03bfb921d4f17126f413801b6aea382e4ad62e39a9421bfc039ee07ab605e545f54aed57332efab50391387f2e860ec22519cefea7994fea7b500b484cd8
+"@propeldata/ui-kit-plugins@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "@propeldata/ui-kit-plugins@npm:0.2.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40propeldata%2Fui-kit-plugins%2F-%2Fui-kit-plugins-0.2.1.tgz"
+  checksum: 511050636015984462a24da395b2f2c88b744e541fc8e882ea125485c6476aede127c6975b2db3ecbb02c000cf01a497fb37d1e1f40e72761112dcf7514ac3a6
   languageName: node
   linkType: hard
 
@@ -6911,6 +6992,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"change-case-all@npm:1.0.14":
+  version: 1.0.14
+  resolution: "change-case-all@npm:1.0.14"
+  dependencies:
+    change-case: ^4.1.2
+    is-lower-case: ^2.0.2
+    is-upper-case: ^2.0.2
+    lower-case: ^2.0.2
+    lower-case-first: ^2.0.2
+    sponge-case: ^1.0.1
+    swap-case: ^2.0.2
+    title-case: ^3.0.3
+    upper-case: ^2.0.2
+    upper-case-first: ^2.0.2
+  checksum: 6ff893e005e1bf115cc2969cc5ca3610f7c6ece9e90b7927ed12c980c7d3ea9a565150d246c6dba0fee21aaacbd38d69b98a4670d96b892c76f66e46616506d3
+  languageName: node
+  linkType: hard
+
 "change-case-all@npm:1.0.15":
   version: 1.0.15
   resolution: "change-case-all@npm:1.0.15::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2Fchange-case-all%2F-%2Fchange-case-all-1.0.15.tgz"
@@ -6956,12 +7055,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chart.js@npm:^4.1.2":
+"chart.js@npm:^4.2.1":
   version: 4.2.1
-  resolution: "chart.js@npm:4.2.1::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2Fchart.js%2F-%2Fchart.js-4.2.1.tgz"
+  resolution: "chart.js@npm:4.2.1"
   dependencies:
     "@kurkle/color": ^0.3.0
   checksum: 7319fdfd1e29812e87bbc07737e8c9072ff659bbc09ade8dd262f83424cd7e48f89afe5220e11e002c9f236883fae3f3adb8adc16acb4682b0ddcc0b661c3af9
+  languageName: node
+  linkType: hard
+
+"chartjs-adapter-date-fns@npm:2.0.1":
+  version: 2.0.1
+  resolution: "chartjs-adapter-date-fns@npm:2.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fchartjs-adapter-date-fns%2F-%2Fchartjs-adapter-date-fns-2.0.1.tgz"
+  peerDependencies:
+    chart.js: ">=2.8.0"
+  checksum: e13fd5357e963ee0b5fc51dd491015df12ff6df286770bdca54bd5481fb6f2d7712b37f5b5638a0fa2058e3551d6bfbb5daa8b73cab3fd8ccf3e684a8a12369e
   languageName: node
   linkType: hard
 
@@ -9176,6 +9284,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"graphql-request@npm:5.1.0":
+  version: 5.1.0
+  resolution: "graphql-request@npm:5.1.0"
+  dependencies:
+    "@graphql-typed-document-node/core": ^3.1.1
+    cross-fetch: ^3.1.5
+    extract-files: ^9.0.0
+    form-data: ^3.0.0
+  peerDependencies:
+    graphql: 14 - 16
+  checksum: 8b65d5c1b0cad8996a843b52305b2712ffbf842c700487d4cee1ed719f22baacaacfddafb65572bcddd67d57fd1d2d389dee2430ffba4b34c3ab542d079446c7
+  languageName: node
+  linkType: hard
+
 "graphql-request@npm:^3.6.1":
   version: 3.7.0
   resolution: "graphql-request@npm:3.7.0::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2Fgraphql-request%2F-%2Fgraphql-request-3.7.0.tgz"
@@ -9192,20 +9314,6 @@ __metadata:
 "graphql-request@npm:^5.0.0":
   version: 5.2.0
   resolution: "graphql-request@npm:5.2.0::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2Fgraphql-request%2F-%2Fgraphql-request-5.2.0.tgz"
-  dependencies:
-    "@graphql-typed-document-node/core": ^3.1.1
-    cross-fetch: ^3.1.5
-    extract-files: ^9.0.0
-    form-data: ^3.0.0
-  peerDependencies:
-    graphql: 14 - 16
-  checksum: a8aa37816378898e6fc8c4db04a1c114c98f98d90718cf1680bd96b22724bd43b1210619f9b0d328b5c1acb4f7b76d2227a2537cd5ab059bb54cf0debecb33bf
-  languageName: node
-  linkType: hard
-
-"graphql-request@npm:^5.2.0":
-  version: 5.2.0
-  resolution: "graphql-request@npm:5.2.0"
   dependencies:
     "@graphql-typed-document-node/core": ^3.1.1
     cross-fetch: ^3.1.5
@@ -11886,6 +11994,13 @@ __metadata:
   version: 5.6.0
   resolution: "pretty-bytes@npm:5.6.0::__archiveUrl=https%3A%2F%2Fpropel-493852367691.d.codeartifact.us-east-2.amazonaws.com%3A443%2Fnpm%2Fpropel%2Fpretty-bytes%2F-%2Fpretty-bytes-5.6.0.tgz"
   checksum: 9c082500d1e93434b5b291bd651662936b8bd6204ec9fa17d563116a192d6d86b98f6d328526b4e8d783c07d5499e2614a807520249692da9ec81564b2f439cd
+  languageName: node
+  linkType: hard
+
+"pretty-bytes@npm:^6.1.0":
+  version: 6.1.0
+  resolution: "pretty-bytes@npm:6.1.0"
+  checksum: cca3be45a299a28d1d3d95056ac709b8aeb01540aae7d906ed674c076b5f4b48cb6bf118f172d486c17e47b092a00e827b7f69608bc731ca35ca6f8d93e130f1
   languageName: node
   linkType: hard
 

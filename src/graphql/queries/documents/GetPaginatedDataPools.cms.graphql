@@ -1,0 +1,19 @@
+query GetPaginatedDataPools($withDataSourcesCheck: Boolean!, $first: Int, $after: String, $last: Int, $before: String) {
+  dataPools(first: $first, after: $after, last: $last, before: $before) {
+    edges {
+      node {
+        ...dataPool
+      }
+    }
+    pageInfo {
+      ...pageInfo
+    }
+  }
+  dataSources(first: 1) @include(if: $withDataSourcesCheck) {
+    edges {
+      node {
+        id
+      }
+    }
+  }
+}

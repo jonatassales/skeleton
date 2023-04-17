@@ -41,8 +41,7 @@ describe('Login Page', () => {
     cy.get('input[type="password"]').type('wrong_password')
     cy.get('button').contains('Login').click()
 
-    cy.wait('@signIn').its('response.statusCode').should('eq', 400) // Adjust this line based on your API response for incorrect credentials
-    // You can also check if an error message is displayed to the user
+    cy.wait('@signIn').its('response.statusCode').should('eq', 400)
   })
 
   it('handles successful login', () => {
@@ -50,11 +49,11 @@ describe('Login Page', () => {
 
     cy.get('input[type="email"]').type('propel+development@propeldata.com')
     cy.get('button').contains('Next').click()
-    cy.get('input[type="password"]').type('rfd=>dc23kT#}KznQPwfjx') // Replace this with a valid password for the test user
+    cy.get('input[type="password"]').type('rfd=>dc23kT#}KznQPwfjx')
     cy.get('button').contains('Login').click()
 
-    cy.wait('@signIn').its('response.statusCode').should('eq', 200) // Adjust this line based on your API response for successful login
-    cy.url().should('include', '/') // Check if the user is redirected to the main page (change this based on your app's behavior after a successful login)
+    cy.wait('@signIn').its('response.statusCode').should('eq', 200)
+    cy.url().should('include', '/')
   })
 })
 

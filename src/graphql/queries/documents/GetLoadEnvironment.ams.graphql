@@ -1,0 +1,8 @@
+query GetLoadEnvironment {
+  environments {
+    nodes {
+      id
+      uniqueName
+    }
+  }
+}

@@ -10,6 +10,7 @@ import '@/theme/globals.css'
 
 import { authConfig } from '@/auth'
 import { defaults } from '@/shared/utils'
+import { AccountStateSetupProvider, AuthEventsProvider } from '@/shared/providers'
 
 Amplify.configure(authConfig)
 
@@ -48,14 +49,18 @@ export default function ConsoleApp(props: ConsoleAppProps) {
             onError
           }}
         >
-          <Component {...pageProps} />
+          <AuthEventsProvider>
+            <AccountStateSetupProvider>
+              <Component {...pageProps} />
+            </AccountStateSetupProvider>
+          </AuthEventsProvider>
         </SWRConfig>
       </QueryClientProvider>
     </ColorModeProvider>
   )
 }
 
-ConsoleApp.getInitialProps = (context) => {
+ConsoleApp.getStaticProps = (context) => {
   const cookies = nookies.get(context)
   return {
     colorMode: cookies.colorMode || defaults.COLOR_MODE
