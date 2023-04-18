@@ -4519,6 +4519,7 @@ __metadata:
     eslint-config-prettier: ^8.5.0
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-tailwindcss: ^3.10.1
+    flagsmith: ^3.18.3
     graphql: ^16.0.1
     graphql-request: 5.1.0
     husky: ^8.0.1
@@ -8801,6 +8802,13 @@ __metadata:
     micromatch: ^4.0.2
     resolve-dir: ^1.0.1
   checksum: 94131e1107ad63790ed00c4c39ca131a93ea602607bd97afeffd92b69a9a63cf2c6f57d6db88cb753fe748ac7fde79e1e76768ff784247026b7c5ebf23ede3a0
+  languageName: node
+  linkType: hard
+
+"flagsmith@npm:^3.18.3":
+  version: 3.18.3
+  resolution: "flagsmith@npm:3.18.3::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fflagsmith%2F-%2Fflagsmith-3.18.3.tgz"
+  checksum: 2bd3b38aeac6c54108edddde8361e7d1a35d81c0818d4a263903303725f741b7b8ab4b1fc30e07534ef934c63760f5e19d101c130eea649710b5eb960e6ec412
   languageName: node
   linkType: hard
 

@@ -45,15 +45,7 @@ describe('Login Page', () => {
   })
 
   it('handles successful login', () => {
-    cy.intercept('POST', 'https://auth.us-east-2.dev.propeldata.com/cognito').as('signIn')
-
-    cy.get('input[type="email"]').type('propel+development@propeldata.com')
-    cy.get('button').contains('Next').click()
-    cy.get('input[type="password"]').type('rfd=>dc23kT#}KznQPwfjx')
-    cy.get('button').contains('Login').click()
-
-    cy.wait('@signIn').its('response.statusCode').should('eq', 200)
-    cy.url().should('include', '/')
+    cy.login('propel+development@propeldata.com', 'rfd=>dc23kT#}KznQPwfjx')
   })
 })
 

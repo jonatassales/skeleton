@@ -5,14 +5,13 @@ import {
   useReactTable,
   ColumnDef,
   flexRender,
-  PaginationState,
   getSortedRowModel,
   SortingState,
   getCoreRowModel
 } from '@tanstack/react-table'
 import { useRouter } from 'next/router'
-import { defaults } from '@/shared/utils'
 import { CaretDown, CaretUp } from '@phosphor-icons/react'
+import { PaginationPage } from '@/shared/types'
 
 export const StyledTable = styled('table', {
   borderCollapse: 'collapse',
@@ -55,9 +54,9 @@ export const TableRow = styled('tr', {
 })
 
 export const TableCell = styled('td', {
-  height: 87,
   textAlign: 'left',
-  color: '#22183C'
+  color: '#22183C',
+  padding: '16px 24px'
 })
 
 export const PaginationControls = styled('div', {
@@ -92,27 +91,23 @@ export const PageSizeSelector = styled('select', {
 })
 
 interface TableProps<TData> extends React.ComponentProps<typeof StyledTable> {
-  columns: ColumnDef<TData>[]
   data: TData[]
+  columns: ColumnDef<TData>[]
+  page: PaginationPage
   isLoading?: boolean
-  pagination?: PaginationState
-  onPaginationChange?: (pagination: PaginationState) => void
   manualPagination?: boolean
   manualSorting?: boolean
   debugTable?: boolean
 }
 
 export function Table<TData>(props: TableProps<TData>) {
-  const { columns, data, pagination, onPaginationChange, isLoading = false } = props
+  const { columns, data, page, debugTable = false, manualPagination = true, isLoading = false, ...rest } = props
 
   const [sorting, setSorting] = React.useState<SortingState>([])
 
   const router = useRouter()
 
-  const { pageSize, pageIndex } = pagination ?? {
-    pageIndex: router.query.page ? parseInt(router.query.page as string) - 1 : 0,
-    pageSize: router.query.size ? parseInt(router.query.size as string) : defaults.RESOURCE_LIST_PAGE_SIZE
-  } // Defaults
+  const { pageSize, pageIndex } = page.pagination
 
   React.useEffect(() => {
     async function updatePaginationQueryParams() {
@@ -145,13 +140,40 @@ export function Table<TData>(props: TableProps<TData>) {
       },
       sorting
     },
-    onPaginationChange,
     onSortingChange: setSorting,
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
-    manualPagination: true,
-    debugTable: true
+    manualPagination,
+    debugTable
   })
+
+  function handleNextPage() {
+    if (page.onNextPage) {
+      page.onNextPage()
+    }
+    table.nextPage()
+  }
+
+  function handlePreviousPage() {
+    if (page.onPreviousPage) {
+      page.onPreviousPage()
+    }
+    table.previousPage()
+  }
+
+  function handleFirstPage() {
+    if (page.onFirstPage) {
+      page.onFirstPage()
+    }
+    table.setPageIndex(0)
+  }
+
+  function handleLastPage() {
+    if (page.onLastPage) {
+      page.onLastPage()
+    }
+    table.setPageIndex(table.getPageCount() - 1)
+  }
 
   if (isLoading) {
     return <div>Loading...</div>
@@ -160,7 +182,7 @@ export function Table<TData>(props: TableProps<TData>) {
   return (
     <div className="p-2">
       <div className="h-2" />
-      <StyledTable>
+      <StyledTable {...rest}>
         <TableHead>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableHeaderRow key={headerGroup.id}>
@@ -204,28 +226,16 @@ export function Table<TData>(props: TableProps<TData>) {
         </TableBody>
       </StyledTable>
       <div className="flex items-center gap-2">
-        <button
-          className="rounded border p-1"
-          onClick={() => table.setPageIndex(0)}
-          disabled={!table.getCanPreviousPage()}
-        >
+        <button className="rounded border p-1" onClick={handleFirstPage} disabled={!table.getCanPreviousPage()}>
           {'<<'}
         </button>
-        <button
-          className="rounded border p-1"
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}
-        >
+        <button className="rounded border p-1" onClick={handlePreviousPage} disabled={!table.getCanPreviousPage()}>
           {'<'}
         </button>
-        <button className="rounded border p-1" onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>
+        <button className="rounded border p-1" onClick={handleNextPage} disabled={!table.getCanNextPage()}>
           {'>'}
         </button>
-        <button
-          className="rounded border p-1"
-          onClick={() => table.setPageIndex(table.getPageCount() - 1)}
-          disabled={!table.getCanNextPage()}
-        >
+        <button className="rounded border p-1" onClick={handleLastPage} disabled={!table.getCanNextPage()}>
           {'>>'}
         </button>
         <span className="flex items-center gap-1">
@@ -241,7 +251,7 @@ export function Table<TData>(props: TableProps<TData>) {
           }}
           className="rounded border p-1 text-primary-950"
         >
-          {[10, 20, 30, 40, 50].map((pageSize) => (
+          {[5, 10, 20].map((pageSize) => (
             <option key={pageSize} value={pageSize}>
               Show {pageSize}
             </option>

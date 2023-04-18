@@ -15,7 +15,7 @@ interface LayoutProps {
 }
 
 export function Layout(props: LayoutProps) {
-  const response = useMainAccount()
+  const { error } = useMainAccount()
 
   return (
     <>

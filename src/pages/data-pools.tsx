@@ -1,7 +1,7 @@
 import React from 'react'
 import { ColumnDef } from '@tanstack/react-table'
 import { Plus } from '@phosphor-icons/react'
-import { TimeSeries } from '@propeldata/react-time-series'
+import { TimeSeries, Styles } from '@propeldata/react-time-series'
 
 import { Card, Breadcrumb, BreadcrumbItem, Button, Table } from '@/design-system'
 import { Layout } from '@/components'
@@ -47,7 +47,7 @@ export type DataPoolColumn = {
 export default function DataPoolsPage() {
   const { isLoading, data, page } = usePaginatedDataPools()
 
-  const styles = {
+  const styles: Styles = {
     line: {
       tension: 0.1,
       borderColor: '#17B897',
@@ -61,6 +61,9 @@ export default function DataPoolsPage() {
       height: 30,
       backgroundColor: 'transparent',
       hideGridLines: true
+    },
+    tooltip: {
+      display: false
     }
   }
 
@@ -78,11 +81,6 @@ export default function DataPoolsPage() {
     storage: getDataPoolStorage(dataPool),
     activity: <TimeSeries {...chartProps} variant="line" />
   }))
-
-  const pagination = {
-    pageIndex: page.pageIndex,
-    pageSize: page.pageSize
-  }
 
   const columns = React.useMemo<ColumnDef<DataPoolColumn>[]>(
     () => [
@@ -142,7 +140,7 @@ export default function DataPoolsPage() {
         </Button>
       </nav>
       <Card className="p-12 shadow-md backdrop-blur-sm dark:border-b-primary-950 dark:bg-gradient-to-tl dark:from-primary-1000/95 dark:to-primary-950/95">
-        <Table<DataPoolColumn> isLoading={isLoading} columns={columns} data={dataPools} pagination={pagination} />
+        <Table<DataPoolColumn> isLoading={isLoading} columns={columns} data={dataPools} page={page} />
       </Card>
     </Layout>
   )
