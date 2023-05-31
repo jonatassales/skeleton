@@ -4,9 +4,9 @@ config:
 generates:
   src/graphql/__generated__.ts:
     schema: ./src/graphql/schema.graphql
-    documents:
-      - src/**/*.graphql
-      - src/**/*.tsx
+    # documents:
+    #   - src/**/*.graphql
+    #   - src/**/*.tsx
     plugins:
       - typescript
       - typescript-msw

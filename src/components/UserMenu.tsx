@@ -1,6 +1,11 @@
 import React from 'react'
-import { Auth } from 'aws-amplify'
-import { CaretDown, Gear, UserCircle, UsersThree, SignOut } from '@phosphor-icons/react'
+import {
+  CaretDown,
+  Gear,
+  UserCircle,
+  UsersThree,
+  SignOut
+} from '@phosphor-icons/react'
 
 import {
   Dropdown,
@@ -27,26 +32,41 @@ export function UserMenu() {
         <DropdownContent sideOffset={26} align="end">
           <DropdownItem>
             <div className="my-6">
-              <TagInfo className="bg-primary-50 text-primary-400" label="Account:">
+              <TagInfo
+                className="bg-primary-50 text-primary-400"
+                label="Account:"
+              >
                 <p className="text-sm text-[#6941C6]">Jonatas@propeldata.com</p>
               </TagInfo>
             </div>
           </DropdownItem>
           <DropdownSeparator />
           <DropdownItem>
-            <Gear className="mr-8 self-center text-primary-900 dark:text-gray-200" size={20} />
+            <Gear
+              className="mr-8 self-center text-primary-900 dark:text-gray-200"
+              size={20}
+            />
             Account Settings
           </DropdownItem>
           <DropdownItem>
-            <UserCircle className="mr-8 self-center text-primary-900 dark:text-gray-200" size={18} />
+            <UserCircle
+              className="mr-8 self-center text-primary-900 dark:text-gray-200"
+              size={18}
+            />
             My Profile
           </DropdownItem>
           <DropdownItem>
-            <UsersThree className="mr-8 self-center text-primary-900 dark:text-gray-200" size={18} />
+            <UsersThree
+              className="mr-8 self-center text-primary-900 dark:text-gray-200"
+              size={18}
+            />
             My Accounts
           </DropdownItem>
-          <DropdownItem onClick={() => Auth.signOut()}>
-            <SignOut className="mr-8 self-center text-primary-900 dark:text-gray-200" size={18} />
+          <DropdownItem onClick={() => console.log('sign out')}>
+            <SignOut
+              className="mr-8 self-center text-primary-900 dark:text-gray-200"
+              size={18}
+            />
             Logout
           </DropdownItem>
         </DropdownContent>

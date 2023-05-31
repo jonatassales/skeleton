@@ -1,16 +1,24 @@
 import React from 'react'
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
-import NoSSR from 'react-no-ssr'
 
 export function Logo() {
   const { theme } = useTheme()
 
-  const logo = theme === 'dark' ? '/images/propel-logo-white.svg' : '/images/propel-logo.svg'
+  const logo =
+    theme === 'dark'
+      ? '/images/propel-logo-white.svg'
+      : '/images/propel-logo.svg'
 
   return (
-    <NoSSR>
-      <Image className="mr-[71px] hidden sm:hidden md:block" src={logo} width={80} height={24} alt="Propel logo" />
+    <>
+      <Image
+        className="mr-[71px] hidden sm:hidden md:block"
+        src={logo}
+        width={80}
+        height={24}
+        alt="Propel logo"
+      />
       <Image
         className="hidden sm:mr-[18px] sm:block md:hidden lg:hidden"
         src={logo}
@@ -25,6 +33,6 @@ export function Logo() {
         height={42}
         alt="Paulina mascot icon"
       />
-    </NoSSR>
+    </>
   )
 }

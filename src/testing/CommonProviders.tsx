@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react'
 import mockRouter from 'next-router-mock'
 import { RouterContext } from 'next/dist/shared/lib/router-context'
-import { QueryClient, QueryClientProvider } from 'react-query'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Provider, useAtom } from 'jotai'
 import { useHydrateAtoms } from 'jotai/utils'
 
@@ -46,7 +46,9 @@ export function CommonProviders(props: CommonProvidersProps): ReactElement {
     <RouterContext.Provider value={mockRouter}>
       <Provider>
         <HydrateAtoms initialValues={props.initialValues}>
-          <QueryClientProvider client={queryClient}>{props.children}</QueryClientProvider>
+          <QueryClientProvider client={queryClient}>
+            {props.children}
+          </QueryClientProvider>
         </HydrateAtoms>
       </Provider>
     </RouterContext.Provider>

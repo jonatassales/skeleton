@@ -1,5 +1,5 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-/src/graphql/__generated__
+/src/graphql/__generated__.ts
 
 # dependencies
 /node_modules
