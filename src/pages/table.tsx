@@ -1,4 +1,5 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 import useSWR from 'swr'
 import {
   PaginationState,
@@ -9,54 +10,19 @@ import {
   getSortedRowModel,
   SortingState
 } from '@tanstack/react-table'
-import { faker } from '@faker-js/faker'
 import { Layout, TableLoader } from '@/components'
 import { Card } from '@/design-system'
 import { CaretDown, CaretUp } from '@phosphor-icons/react'
-import { useRouter } from 'next/router'
 import { defaults } from '@/shared/utils'
 
-export type DataPool = {
-  id: string
-  uniqueName: string
-  status: React.ReactNode
-  tableName: string
-  records: string
-  storage: string
-  activity: React.ReactNode
+interface Data {
+  foo: 'MOCKED_DATA'
+  bar: 'MOCKED_DATA'
 }
-
-const newDataPool = (): DataPool => {
-  const id = faker.datatype.uuid()
-  return {
-    id,
-    uniqueName: faker.name.firstName(),
-    status: faker.helpers.shuffle<React.ReactNode>([
-      <span key={`status-active-${id}`} className="text-green-500">
-        Active
-      </span>,
-      <span key={`status-inactive-${id}`} className="text-red-500">
-        Inactive
-      </span>
-    ])[0]!,
-    tableName: faker.name.lastName(),
-    records: faker.datatype.number(1000000).toString(),
-    storage: faker.datatype.number(1000000).toString(),
-    activity: faker.helpers.shuffle<React.ReactNode>([
-      <span key={`activity-active-${id}`} className="text-green-500">
-        Active
-      </span>,
-      <span key={`activity-inactive-${id}`} className="text-red-500">
-        Inactive
-      </span>
-    ])[0]!
-  }
-}
-
-const data = Array.from({ length: 50 }, () => newDataPool())
 
 async function fetchData(options: { pageIndex: number; pageSize: number }) {
   await new Promise((r) => setTimeout(r, 500))
+  const data = Array.from({ length: 50 }, () => null)
 
   return {
     rows: data.slice(options.pageIndex * options.pageSize, (options.pageIndex + 1) * options.pageSize),
@@ -93,38 +59,18 @@ export default function Table() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageIndex, pageSize])
 
-  const columns = React.useMemo<ColumnDef<DataPool>[]>(
+  const columns = React.useMemo<ColumnDef<Data>[]>(
     () => [
       {
-        accessorKey: 'uniqueName',
-        header: () => <span>Unique Name</span>,
-        cell: (props) => <span>{props.row.original.uniqueName}</span>
+        accessorKey: 'foo',
+        header: () => <span>Foo</span>,
+        cell: (props) => <span>{props.row.original.foo}</span>
       },
 
       {
-        accessorKey: 'status',
-        header: () => <span>Status</span>,
-        cell: (props) => <span>{props.row.original.status}</span>
-      },
-      {
-        accessorKey: 'tableName',
-        header: () => <span>Table Name</span>,
-        cell: (props) => <span>{props.row.original.tableName}</span>
-      },
-      {
-        accessorKey: 'records',
-        header: () => <span>Records</span>,
-        cell: (props) => <span>{props.row.original.records}</span>
-      },
-      {
-        accessorKey: 'storage',
-        header: () => <span>Storage</span>,
-        cell: (props) => <span>{props.row.original.storage}</span>
-      },
-      {
-        accessorKey: 'activity',
-        header: () => <span>Sync Activity</span>,
-        cell: (props) => <span>{props.row.original.activity}</span>
+        accessorKey: 'bar',
+        header: () => <span>Bar</span>,
+        cell: (props) => <span>{props.row.original.bar}</span>
       }
     ],
     []
@@ -141,7 +87,7 @@ export default function Table() {
 
   const defaultData = React.useMemo(() => [], [])
 
-  const table = useReactTable<DataPool>({
+  const table = useReactTable<Data>({
     data: data?.rows ?? defaultData,
     columns,
     pageCount: data?.pageCount ?? -1,

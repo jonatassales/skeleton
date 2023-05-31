@@ -1,20 +1,9 @@
 import React from 'react'
 import type { AppProps } from 'next/app'
-import { Amplify } from 'aws-amplify'
 import { SWRConfig } from 'swr'
-import { QueryClient, QueryClientProvider } from 'react-query'
 import { ThemeProvider as ColorModeProvider } from 'next-themes'
 import * as Sentry from '@sentry/nextjs'
-import nookies from 'nookies'
 import '@/theme/globals.css'
-
-import { authConfig } from '@/auth'
-import { defaults } from '@/shared/utils'
-import { AccountStateSetupProvider, AuthEventsProvider } from '@/shared/providers'
-
-Amplify.configure(authConfig)
-
-const queryClient = new QueryClient()
 
 interface ConsoleAppProps extends AppProps {
   colorMode: string
@@ -39,30 +28,22 @@ export default function ConsoleApp(props: ConsoleAppProps) {
     if ([404, 401, 403].includes(error.status)) return
   }
 
+  function shouldRetryOnError(error) {
+    return ![404, 401, 403].includes(error.status)
+  }
+
   return (
     <ColorModeProvider attribute="class" defaultTheme={colorMode}>
-      <QueryClientProvider client={queryClient}>
-        <SWRConfig
-          value={{
-            keepPreviousData: true,
-            onErrorRetry,
-            onError
-          }}
-        >
-          <AuthEventsProvider>
-            <AccountStateSetupProvider>
-              <Component {...pageProps} />
-            </AccountStateSetupProvider>
-          </AuthEventsProvider>
-        </SWRConfig>
-      </QueryClientProvider>
+      <SWRConfig
+        value={{
+          keepPreviousData: true,
+          onErrorRetry,
+          onError,
+          shouldRetryOnError
+        }}
+      >
+        <Component {...pageProps} />
+      </SWRConfig>
     </ColorModeProvider>
   )
-}
-
-ConsoleApp.getStaticProps = (context) => {
-  const cookies = nookies.get(context)
-  return {
-    colorMode: cookies.colorMode || defaults.COLOR_MODE
-  }
 }

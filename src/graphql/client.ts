@@ -1,14 +1,13 @@
 import React from 'react'
 import { GraphQLClient } from 'graphql-request'
-import { Auth } from 'aws-amplify'
 
 async function getCurrentSessionAccessToken() {
-  try {
-    const session = await Auth.currentSession()
-    return session.getAccessToken().getJwtToken()
-  } catch (error) {
-    Auth.signOut()
-  }
+  // try {
+  //   const session = await Auth.currentSession()
+  //   return session.getAccessToken().getJwtToken()
+  // } catch (error) {
+  //   Auth.signOut()
+  // }
 }
 
 const requestMiddleware: any = async (request) => {

@@ -27,6 +27,7 @@ export function AuthEventsProvider(props: AuthEventsProviderProps) {
   const { cleanupJotaiStorage } = useCleanupJotaiStorage()
 
   const onSignOut = React.useCallback(async () => {
+    console.log('signing out...')
     Sentry.setUser(null)
     router.push('/login')
   }, [router])
